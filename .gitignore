@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore extracted datasets and generated processed data
+data/**/*.csv
+data/processed/
