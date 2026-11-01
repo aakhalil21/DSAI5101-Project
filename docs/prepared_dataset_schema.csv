@@ -1,0 +1,4 @@
+column,kind,definition,model_input
+row_id,metadata,Zero-based original source CSV row position,No
+duplicate_group,metadata,Identifier for exact matches across all 40 original source fields; all group members remain in one split,No
+heart_disease,derived target,1 if either target source is Yes; 0 only if both are No; unknown cases excluded,No (use separately as y)

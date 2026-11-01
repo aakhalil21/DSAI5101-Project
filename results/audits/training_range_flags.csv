@@ -1,0 +1,7 @@
+column,review_flag_count,lower_bound,upper_bound
+PhysicalHealthDays,0,0,30.0
+MentalHealthDays,0,0,30.0
+SleepHours,0,1,24.0
+HeightInMeters,0,0,
+WeightInKilograms,0,0,
+BMI,0,0,

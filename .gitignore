@@ -219,6 +219,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Ignore extracted datasets and generated processed data
-data/**/*.csv
-data/processed/
+# Generated handoff datasets and local provenance archives
+/data/processed/
+/data/archive/
+# Frozen manifests in data/manifests/ remain trackable.
