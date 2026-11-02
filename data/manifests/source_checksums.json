@@ -2,8 +2,8 @@
   "algorithm": "sha256",
   "raw_zip_sha256": "8bc95f1a36fa96c9105da335df66086041b07da7c9e17d02e522fe09e03ac4a2",
   "raw_csv_member_sha256": "9c5be2d641c60b63d395cb374581e4a691dbfe3cf0258dc437535b79e7a30a79",
-  "split_manifest_sha256": "034fe898de196e832c1aad8a54e3ddd677b643f6b136e87574e79e4024880c21",
-  "excluded_rows_sha256": "1db28b36e858e43fab072af0b67e6427ceac6a746cd5c7a4b4ecc6d82f0ff974",
+  "split_manifest_sha256": "10a759dc8021022e6fcb8bdfe549c2a0ff155d681d871e7f0cb6c63adba11d4d",
+  "excluded_rows_sha256": "e29f97c2848fb9ab286b5d896b67593b2c3a99b70d34cc09cbabf50f2de42374",
   "supplied_raw_valued_splits_zip_sha256": "f363935a79062e1b77335036dd571e8fceb24086559718035cdb6509a37893d2",
   "original_preparation_notebook_sha256": "687773ece7b05d2865b6fe3898989587ad59e30c0891dd7cdaf1049938a45909"
 }

@@ -1,4 +1,4 @@
-"""Regenerate raw-valued handoff CSVs using the frozen split manifest."""
+"""Regenerate observed splits and optional imputed copies using frozen assignments."""
 from __future__ import annotations
 
 import argparse
@@ -10,10 +10,16 @@ from zipfile import ZipFile
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
+if __package__:
+    from .preprocessing import impute_split_copies
+else:
+    from preprocessing import impute_split_copies
+
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data/raw/heart_2022_with_nans.zip"
 MANIFEST_DIR = ROOT / "data/manifests"
-OUTPUT_DIR = ROOT / "data/processed"
+OUTPUT_DIR = ROOT / "data/processed/observed"
+IMPUTED_DIR = ROOT / "data/processed/imputed"
 AUDIT_DIR = ROOT / "results/audits"
 TARGET_SOURCES = ("HadHeartAttack", "HadAngina")
 SPLITS = ("train", "validation", "test")
@@ -135,7 +141,8 @@ def write_audits(outputs: dict[str, pd.DataFrame], audit_dir: Path) -> None:
 
 
 def prepare_data(source_path: Path | str = SOURCE, output_dir: Path | str = OUTPUT_DIR,
-                 audit_dir: Path | str = AUDIT_DIR, check_seed_42: bool = False) -> dict[str, pd.DataFrame]:
+                 audit_dir: Path | str = AUDIT_DIR, check_seed_42: bool = False,
+                 imputed_dir: Path | str | None = None) -> dict[str, pd.DataFrame]:
     """Regenerate handoff files and audits; never write frozen artifacts."""
     known, excluded = construct_records(load_source(source_path))
     manifest = load_frozen_assignments(known, excluded)
@@ -145,6 +152,8 @@ def prepare_data(source_path: Path | str = SOURCE, output_dir: Path | str = OUTP
     known = known.copy()
     known["split"] = manifest.split.to_numpy()
     output_dir, audit_dir = Path(output_dir), Path(audit_dir)
+    if imputed_dir is not None and output_dir.resolve() == Path(imputed_dir).resolve():
+        raise ValueError("Observed and imputed output directories must differ")
     output_dir.mkdir(parents=True, exist_ok=True)
     outputs = {}
     for split in SPLITS:
@@ -156,8 +165,18 @@ def prepare_data(source_path: Path | str = SOURCE, output_dir: Path | str = OUTP
         frame.to_csv(temporary, index=False)
         temporary.replace(path)
         outputs[split] = frame
-        print(f"{split}: {len(frame):,} raw-valued rows -> {path}")
+        print(f"{split}: {len(frame):,} observed rows -> {path}")
     write_audits(outputs, audit_dir)
+    if imputed_dir is not None:
+        filled = impute_split_copies(outputs)
+        imputed_dir = Path(imputed_dir)
+        imputed_dir.mkdir(parents=True, exist_ok=True)
+        for split in SPLITS:
+            path = imputed_dir / OUTPUT_NAMES[split]
+            temporary = path.with_suffix(".csv.tmp")
+            filled[split].to_csv(temporary, index=False)
+            temporary.replace(path)
+            print(f"{split}: {len(filled[split]):,} imputed rows -> {path}")
     print(f"Unknown-target exclusions: {len(excluded):,}; frozen artifacts unchanged.")
     return outputs
 
@@ -167,9 +186,13 @@ def main() -> None:
     parser.add_argument("--source", type=Path, default=SOURCE, help="Verified raw ZIP or its CSV member")
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
     parser.add_argument("--audit-dir", type=Path, default=AUDIT_DIR)
+    parser.add_argument("--write-imputed", action="store_true",
+                        help="Also write training-fitted filled copies under data/processed/imputed")
+    parser.add_argument("--imputed-dir", type=Path, default=IMPUTED_DIR)
     parser.add_argument("--verify-seed-42", action="store_true")
     args = parser.parse_args()
-    prepare_data(args.source, args.output_dir, args.audit_dir, args.verify_seed_42)
+    prepare_data(args.source, args.output_dir, args.audit_dir, args.verify_seed_42,
+                 args.imputed_dir if args.write_imputed else None)
 
 
 if __name__ == "__main__":

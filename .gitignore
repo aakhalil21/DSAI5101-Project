@@ -220,6 +220,8 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Generated handoff datasets and local provenance archives
-/data/processed/
+/data/processed/**/*.csv
+/data/processed/**/*.csv.tmp
+/data/processed/*.csv
 /data/archive/
 # Frozen manifests in data/manifests/ remain trackable.
