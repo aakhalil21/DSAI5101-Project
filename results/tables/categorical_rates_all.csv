@@ -1,0 +1,83 @@
+group,feature,category,n,cases,heart_disease_pct
+conditions,HadStroke,Missing,697,204,29.27
+conditions,HadStroke,No,294284,22879,7.77
+conditions,HadStroke,Yes,13099,4743,36.21
+conditions,HadKidneyDisease,Missing,1078,248,23.01
+conditions,HadKidneyDisease,No,293046,23488,8.02
+conditions,HadKidneyDisease,Yes,13956,4090,29.31
+conditions,HadCOPD,Missing,1196,224,18.73
+conditions,HadCOPD,No,282471,21140,7.48
+conditions,HadCOPD,Yes,24413,6462,26.47
+conditions,HadArthritis,Missing,1541,146,9.47
+conditions,HadArthritis,No,202009,11104,5.5
+conditions,HadArthritis,Yes,104530,16576,15.86
+conditions,HadAsthma,Missing,984,120,12.2
+conditions,HadAsthma,No,260793,22301,8.55
+conditions,HadAsthma,Yes,46303,5405,11.67
+conditions,HadDepressiveDisorder,Missing,1648,190,11.53
+conditions,HadDepressiveDisorder,No,243353,20532,8.44
+conditions,HadDepressiveDisorder,Yes,63079,7104,11.26
+conditions,HadSkinCancer,Missing,1870,333,17.81
+conditions,HadSkinCancer,No,281626,23313,8.28
+conditions,HadSkinCancer,Yes,24584,4180,17.0
+functional,DifficultyWalking,Missing,16306,1311,8.04
+functional,DifficultyWalking,No,245132,15858,6.47
+functional,DifficultyWalking,Yes,46642,10657,22.85
+functional,DifficultyDressingBathing,Missing,16228,1255,7.73
+functional,DifficultyDressingBathing,No,280370,23720,8.46
+functional,DifficultyDressingBathing,Yes,11482,2851,24.83
+functional,DifficultyErrands,Missing,17470,1388,7.95
+functional,DifficultyErrands,No,268475,21834,8.13
+functional,DifficultyErrands,Yes,22135,4604,20.8
+functional,DeafOrHardOfHearing,Missing,14013,1143,8.16
+functional,DeafOrHardOfHearing,No,267389,20997,7.85
+functional,DeafOrHardOfHearing,Yes,26678,5686,21.31
+functional,BlindOrVisionDifficulty,Missing,14661,1162,7.93
+functional,BlindOrVisionDifficulty,No,277253,23428,8.45
+functional,BlindOrVisionDifficulty,Yes,16166,3236,20.02
+functional,DifficultyConcentrating,Missing,16469,1325,8.05
+functional,DifficultyConcentrating,No,257224,21622,8.41
+functional,DifficultyConcentrating,Yes,34387,4879,14.19
+care_and_lifestyle,ChestScan,Missing,38383,3429,8.93
+care_and_lifestyle,ChestScan,No,155157,5529,3.56
+care_and_lifestyle,ChestScan,Yes,114540,18868,16.47
+care_and_lifestyle,LastCheckupTime,5 or more years ago,13200,395,2.99
+care_and_lifestyle,LastCheckupTime,Missing,5589,328,5.87
+care_and_lifestyle,LastCheckupTime,Within past 2 years (1 year but less than 2 years ago),29029,1256,4.33
+care_and_lifestyle,LastCheckupTime,Within past 5 years (2 years but less than 5 years ago),17230,528,3.06
+care_and_lifestyle,LastCheckupTime,Within past year (anytime less than 12 months ago),243032,25319,10.42
+care_and_lifestyle,AlcoholDrinkers,Missing,31941,2668,8.35
+care_and_lifestyle,AlcoholDrinkers,No,129631,15274,11.78
+care_and_lifestyle,AlcoholDrinkers,Yes,146508,9884,6.75
+care_and_lifestyle,ECigaretteUsage,Missing,24458,2067,8.45
+care_and_lifestyle,ECigaretteUsage,Never used e-cigarettes in my entire life,216387,20435,9.44
+care_and_lifestyle,ECigaretteUsage,Not at all (right now),51957,4517,8.69
+care_and_lifestyle,ECigaretteUsage,Use them every day,7177,346,4.82
+care_and_lifestyle,ECigaretteUsage,Use them some days,8101,461,5.69
+care_and_lifestyle,FluVaxLast12,Missing,32327,2674,8.27
+care_and_lifestyle,FluVaxLast12,No,130574,8821,6.76
+care_and_lifestyle,FluVaxLast12,Yes,145179,16331,11.25
+care_and_lifestyle,PneumoVaxEver,Missing,53001,3645,6.88
+care_and_lifestyle,PneumoVaxEver,No,149466,7981,5.34
+care_and_lifestyle,PneumoVaxEver,Yes,105613,16200,15.34
+care_and_lifestyle,TetanusLast10Tdap,Missing,56681,4853,8.56
+care_and_lifestyle,TetanusLast10Tdap,"No, did not receive any tetanus shot in the past 10 years",84159,8187,9.73
+care_and_lifestyle,TetanusLast10Tdap,"Yes, received Tdap",69568,4901,7.04
+care_and_lifestyle,TetanusLast10Tdap,"Yes, received tetanus shot but not sure what type",78591,7874,10.02
+care_and_lifestyle,TetanusLast10Tdap,"Yes, received tetanus shot, but not Tdap",19081,2011,10.54
+care_and_lifestyle,HIVTesting,Missing,45404,4196,9.24
+care_and_lifestyle,HIVTesting,No,173182,16549,9.56
+care_and_lifestyle,HIVTesting,Yes,89494,7081,7.91
+care_and_lifestyle,HighRiskLastYear,Missing,34754,2906,8.36
+care_and_lifestyle,HighRiskLastYear,No,261383,24325,9.31
+care_and_lifestyle,HighRiskLastYear,Yes,11943,595,4.98
+care_and_lifestyle,CovidPos,Missing,34810,2865,8.23
+care_and_lifestyle,CovidPos,No,186936,18198,9.73
+care_and_lifestyle,CovidPos,Tested positive using home test without a health professional,9405,511,5.43
+care_and_lifestyle,CovidPos,Yes,76929,6252,8.13
+care_and_lifestyle,RaceEthnicityCategory,"Black only, Non-Hispanic",24434,1886,7.72
+care_and_lifestyle,RaceEthnicityCategory,Hispanic,29595,1683,5.69
+care_and_lifestyle,RaceEthnicityCategory,Missing,9492,947,9.98
+care_and_lifestyle,RaceEthnicityCategory,"Multiracial, Non-Hispanic",6539,587,8.98
+care_and_lifestyle,RaceEthnicityCategory,"Other race only, Non-Hispanic",15648,1028,6.57
+care_and_lifestyle,RaceEthnicityCategory,"White only, Non-Hispanic",222372,21695,9.76

@@ -1,0 +1,7 @@
+GeneralHealth,n,cases,heart_disease_pct
+Excellent,49973,1197,2.4
+Very good,103246,4891,4.74
+Good,99394,9342,9.4
+Fair,41388,7932,19.16
+Poor,13334,4343,32.57
+Missing,745,121,16.24

@@ -1,0 +1,5 @@
+SleepGroup,n,cases,heart_disease_pct
+5 h or fewer,33355,4197,12.58
+6-8 h,245743,19663,8.0
+Missing,3525,498,14.13
+More than 8 h,25457,3468,13.62

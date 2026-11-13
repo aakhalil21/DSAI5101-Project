@@ -1,0 +1,105 @@
+AgeCategory,Sex,SmokerStatus,n,heart_disease_pct
+Age 18 to 24,Female,Current smoker - now smokes every day,202,2.97
+Age 18 to 24,Female,Current smoker - now smokes some days,158,1.27
+Age 18 to 24,Female,Former smoker,401,1.25
+Age 18 to 24,Female,Never smoked,6678,0.54
+Age 18 to 24,Male,Current smoker - now smokes every day,324,5.56
+Age 18 to 24,Male,Current smoker - now smokes some days,438,1.83
+Age 18 to 24,Male,Former smoker,754,1.06
+Age 18 to 24,Male,Never smoked,8288,0.59
+Age 25 to 29,Female,Current smoker - now smokes every day,369,1.36
+Age 25 to 29,Female,Current smoker - now smokes some days,230,2.61
+Age 25 to 29,Female,Former smoker,824,1.21
+Age 25 to 29,Female,Never smoked,5250,0.78
+Age 25 to 29,Male,Current smoker - now smokes every day,517,2.51
+Age 25 to 29,Male,Current smoker - now smokes some days,425,1.41
+Age 25 to 29,Male,Former smoker,1258,0.87
+Age 25 to 29,Male,Never smoked,5331,0.84
+Age 30 to 34,Female,Current smoker - now smokes every day,770,2.34
+Age 30 to 34,Female,Current smoker - now smokes some days,310,1.61
+Age 30 to 34,Female,Former smoker,1351,1.48
+Age 30 to 34,Female,Never smoked,5817,0.83
+Age 30 to 34,Male,Current smoker - now smokes every day,832,3.85
+Age 30 to 34,Male,Current smoker - now smokes some days,450,2.0
+Age 30 to 34,Male,Former smoker,1856,1.72
+Age 30 to 34,Male,Never smoked,5074,0.83
+Age 35 to 39,Female,Current smoker - now smokes every day,995,4.22
+Age 35 to 39,Female,Current smoker - now smokes some days,357,2.24
+Age 35 to 39,Female,Former smoker,1746,1.66
+Age 35 to 39,Female,Never smoked,6197,0.97
+Age 35 to 39,Male,Current smoker - now smokes every day,1082,3.97
+Age 35 to 39,Male,Current smoker - now smokes some days,541,1.85
+Age 35 to 39,Male,Former smoker,2364,1.69
+Age 35 to 39,Male,Never smoked,5003,1.32
+Age 40 to 44,Female,Current smoker - now smokes every day,1139,3.78
+Age 40 to 44,Female,Current smoker - now smokes some days,473,3.17
+Age 40 to 44,Female,Former smoker,2308,2.38
+Age 40 to 44,Female,Never smoked,6077,1.48
+Age 40 to 44,Male,Current smoker - now smokes every day,1199,4.59
+Age 40 to 44,Male,Current smoker - now smokes some days,449,3.79
+Age 40 to 44,Male,Former smoker,2747,3.31
+Age 40 to 44,Male,Never smoked,4726,1.8
+Age 45 to 49,Female,Current smoker - now smokes every day,1059,6.52
+Age 45 to 49,Female,Current smoker - now smokes some days,374,5.61
+Age 45 to 49,Female,Former smoker,2081,3.51
+Age 45 to 49,Female,Never smoked,6028,2.39
+Age 45 to 49,Male,Current smoker - now smokes every day,1058,8.32
+Age 45 to 49,Male,Current smoker - now smokes some days,436,7.11
+Age 45 to 49,Male,Former smoker,2383,5.33
+Age 45 to 49,Male,Never smoked,4741,2.64
+Age 50 to 54,Female,Current smoker - now smokes every day,1293,9.28
+Age 50 to 54,Female,Current smoker - now smokes some days,418,10.77
+Age 50 to 54,Female,Former smoker,2444,5.2
+Age 50 to 54,Female,Never smoked,7207,3.22
+Age 50 to 54,Male,Current smoker - now smokes every day,1186,11.97
+Age 50 to 54,Male,Current smoker - now smokes some days,396,8.59
+Age 50 to 54,Male,Former smoker,2552,7.99
+Age 50 to 54,Male,Never smoked,5820,4.79
+Age 55 to 59,Female,Current smoker - now smokes every day,1515,13.86
+Age 55 to 59,Female,Current smoker - now smokes some days,423,10.87
+Age 55 to 59,Female,Former smoker,3077,7.67
+Age 55 to 59,Female,Never smoked,7354,3.94
+Age 55 to 59,Male,Current smoker - now smokes every day,1424,15.45
+Age 55 to 59,Male,Current smoker - now smokes some days,428,17.52
+Age 55 to 59,Male,Former smoker,2851,12.91
+Age 55 to 59,Male,Never smoked,6402,6.47
+Age 60 to 64,Female,Current smoker - now smokes every day,1755,12.59
+Age 60 to 64,Female,Current smoker - now smokes some days,551,12.34
+Age 60 to 64,Female,Former smoker,4483,9.46
+Age 60 to 64,Female,Never smoked,8541,4.85
+Age 60 to 64,Male,Current smoker - now smokes every day,1595,20.25
+Age 60 to 64,Male,Current smoker - now smokes some days,466,17.38
+Age 60 to 64,Male,Former smoker,3919,16.36
+Age 60 to 64,Male,Never smoked,7238,9.67
+Age 65 to 69,Female,Current smoker - now smokes every day,1367,14.7
+Age 65 to 69,Female,Current smoker - now smokes some days,498,14.86
+Age 65 to 69,Female,Former smoker,4959,10.89
+Age 65 to 69,Female,Never smoked,9447,6.44
+Age 65 to 69,Male,Current smoker - now smokes every day,1384,22.9
+Age 65 to 69,Male,Current smoker - now smokes some days,420,24.52
+Age 65 to 69,Male,Former smoker,5092,19.84
+Age 65 to 69,Male,Never smoked,7182,12.6
+Age 70 to 74,Female,Current smoker - now smokes every day,926,17.93
+Age 70 to 74,Female,Current smoker - now smokes some days,352,14.2
+Age 70 to 74,Female,Former smoker,4710,13.12
+Age 70 to 74,Female,Never smoked,9144,9.32
+Age 70 to 74,Male,Current smoker - now smokes every day,905,29.5
+Age 70 to 74,Male,Current smoker - now smokes some days,288,26.74
+Age 70 to 74,Male,Former smoker,5493,24.76
+Age 70 to 74,Male,Never smoked,6304,17.78
+Age 75 to 79,Female,Current smoker - now smokes every day,556,19.42
+Age 75 to 79,Female,Current smoker - now smokes some days,216,20.37
+Age 75 to 79,Female,Former smoker,4120,16.58
+Age 75 to 79,Female,Never smoked,6841,11.93
+Age 75 to 79,Male,Current smoker - now smokes every day,482,29.25
+Age 75 to 79,Male,Current smoker - now smokes some days,143,27.27
+Age 75 to 79,Male,Former smoker,4547,29.27
+Age 75 to 79,Male,Never smoked,4033,22.17
+Age 80 or older,Female,Current smoker - now smokes every day,320,20.94
+Age 80 or older,Female,Current smoker - now smokes some days,129,16.28
+Age 80 or older,Female,Former smoker,4447,20.4
+Age 80 or older,Female,Never smoked,8804,17.7
+Age 80 or older,Male,Current smoker - now smokes every day,228,38.6
+Age 80 or older,Male,Current smoker - now smokes some days,92,33.7
+Age 80 or older,Male,Former smoker,4753,33.94
+Age 80 or older,Male,Never smoked,4029,27.33

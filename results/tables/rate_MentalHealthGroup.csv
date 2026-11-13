@@ -1,0 +1,5 @@
+MentalHealthGroup,n,cases,heart_disease_pct
+0 days,183886,17035,9.26
+1-7 days,63448,4207,6.63
+8-30 days,54704,5828,10.65
+Missing,6042,756,12.51

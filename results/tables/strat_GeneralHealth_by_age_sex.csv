@@ -1,0 +1,131 @@
+AgeCategory,Sex,GeneralHealth,n,heart_disease_pct
+Age 18 to 24,Female,Excellent,1553,0.32
+Age 18 to 24,Female,Fair,815,1.47
+Age 18 to 24,Female,Good,2610,0.57
+Age 18 to 24,Female,Poor,130,7.69
+Age 18 to 24,Female,Very good,2980,0.37
+Age 18 to 24,Male,Excellent,2660,0.71
+Age 18 to 24,Male,Fair,932,1.07
+Age 18 to 24,Male,Good,3102,0.93
+Age 18 to 24,Male,Poor,148,8.78
+Age 18 to 24,Male,Very good,3706,0.57
+Age 25 to 29,Female,Excellent,1453,0.55
+Age 25 to 29,Female,Fair,749,2.27
+Age 25 to 29,Female,Good,2259,0.89
+Age 25 to 29,Female,Poor,111,6.31
+Age 25 to 29,Female,Very good,2676,0.52
+Age 25 to 29,Male,Excellent,1959,0.46
+Age 25 to 29,Male,Fair,715,1.96
+Age 25 to 29,Male,Good,2412,1.45
+Age 25 to 29,Male,Poor,107,9.35
+Age 25 to 29,Male,Very good,2860,0.56
+Age 30 to 34,Female,Excellent,1671,0.42
+Age 30 to 34,Female,Fair,900,3.67
+Age 30 to 34,Female,Good,2984,0.94
+Age 30 to 34,Female,Poor,169,5.92
+Age 30 to 34,Female,Very good,3274,0.52
+Age 30 to 34,Male,Excellent,2026,0.84
+Age 30 to 34,Male,Fair,763,3.67
+Age 30 to 34,Male,Good,2723,1.43
+Age 30 to 34,Male,Poor,164,7.32
+Age 30 to 34,Male,Very good,3217,0.9
+Age 35 to 39,Female,Excellent,1959,0.46
+Age 35 to 39,Female,Fair,1040,3.75
+Age 35 to 39,Female,Good,3308,1.63
+Age 35 to 39,Female,Poor,229,11.79
+Age 35 to 39,Female,Very good,3591,0.7
+Age 35 to 39,Male,Excellent,2122,0.9
+Age 35 to 39,Male,Fair,867,5.54
+Age 35 to 39,Male,Good,3057,1.77
+Age 35 to 39,Male,Poor,189,7.94
+Age 35 to 39,Male,Very good,3487,0.98
+Age 40 to 44,Female,Excellent,1979,0.66
+Age 40 to 44,Female,Fair,1299,5.62
+Age 40 to 44,Female,Good,3482,1.98
+Age 40 to 44,Female,Poor,308,10.71
+Age 40 to 44,Female,Very good,3786,0.87
+Age 40 to 44,Male,Excellent,2108,0.9
+Age 40 to 44,Male,Fair,975,6.67
+Age 40 to 44,Male,Good,3075,3.12
+Age 40 to 44,Male,Poor,246,15.85
+Age 40 to 44,Male,Very good,3482,1.35
+Age 45 to 49,Female,Excellent,1808,1.16
+Age 45 to 49,Female,Fair,1396,8.09
+Age 45 to 49,Female,Good,3245,2.4
+Age 45 to 49,Female,Poor,443,18.28
+Age 45 to 49,Female,Very good,3505,1.2
+Age 45 to 49,Male,Excellent,1786,1.46
+Age 45 to 49,Male,Fair,1048,11.74
+Age 45 to 49,Male,Good,3010,4.12
+Age 45 to 49,Male,Poor,303,23.76
+Age 45 to 49,Male,Very good,3267,1.74
+Age 50 to 54,Female,Excellent,2066,1.21
+Age 50 to 54,Female,Fair,1759,11.31
+Age 50 to 54,Female,Good,3853,3.66
+Age 50 to 54,Female,Poor,622,22.67
+Age 50 to 54,Female,Very good,4068,1.38
+Age 50 to 54,Male,Excellent,1872,1.92
+Age 50 to 54,Male,Fair,1366,15.89
+Age 50 to 54,Male,Good,3615,6.14
+Age 50 to 54,Male,Poor,443,31.15
+Age 50 to 54,Male,Very good,3501,2.83
+Age 55 to 59,Female,Excellent,2105,1.05
+Age 55 to 59,Female,Fair,2051,15.21
+Age 55 to 59,Female,Good,4106,5.55
+Age 55 to 59,Female,Poor,747,26.1
+Age 55 to 59,Female,Very good,4462,2.2
+Age 55 to 59,Male,Excellent,1941,2.73
+Age 55 to 59,Male,Fair,1686,21.65
+Age 55 to 59,Male,Good,3740,9.52
+Age 55 to 59,Male,Poor,688,32.41
+Age 55 to 59,Male,Very good,3905,4.3
+Age 60 to 64,Female,Excellent,2428,1.03
+Age 60 to 64,Female,Fair,2580,14.53
+Age 60 to 64,Female,Good,5159,7.56
+Age 60 to 64,Female,Poor,952,27.63
+Age 60 to 64,Female,Very good,5558,2.86
+Age 60 to 64,Male,Excellent,2049,4.2
+Age 60 to 64,Male,Fair,2151,24.83
+Age 60 to 64,Male,Good,4566,12.75
+Age 60 to 64,Male,Poor,861,38.21
+Age 60 to 64,Male,Very good,4499,7.31
+Age 65 to 69,Female,Excellent,2328,1.59
+Age 65 to 69,Female,Fair,2598,19.25
+Age 65 to 69,Female,Good,5671,8.69
+Age 65 to 69,Female,Poor,824,32.77
+Age 65 to 69,Female,Very good,6121,3.71
+Age 65 to 69,Male,Excellent,2049,5.08
+Age 65 to 69,Male,Fair,2240,28.88
+Age 65 to 69,Male,Good,4983,17.94
+Age 65 to 69,Male,Poor,802,44.26
+Age 65 to 69,Male,Very good,4928,9.9
+Age 70 to 74,Female,Excellent,2025,2.27
+Age 70 to 74,Female,Fair,2459,23.1
+Age 70 to 74,Female,Good,5437,11.24
+Age 70 to 74,Female,Poor,803,34.0
+Age 70 to 74,Female,Very good,5530,5.44
+Age 70 to 74,Male,Excellent,1740,7.64
+Age 70 to 74,Male,Fair,2113,36.39
+Age 70 to 74,Male,Good,4736,23.16
+Age 70 to 74,Male,Poor,816,46.08
+Age 70 to 74,Male,Very good,4395,14.18
+Age 75 to 79,Female,Excellent,1417,4.3
+Age 75 to 79,Female,Fair,2054,26.83
+Age 75 to 79,Female,Good,4279,13.79
+Age 75 to 79,Female,Poor,678,38.35
+Age 75 to 79,Female,Very good,4189,7.21
+Age 75 to 79,Male,Excellent,1158,11.31
+Age 75 to 79,Male,Fair,1596,39.47
+Age 75 to 79,Male,Good,3419,27.46
+Age 75 to 79,Male,Poor,608,53.45
+Age 75 to 79,Male,Very good,3007,17.59
+Age 80 or older,Female,Excellent,1492,6.43
+Age 80 or older,Female,Fair,2690,31.19
+Age 80 or older,Female,Good,5146,17.82
+Age 80 or older,Female,Poor,1048,43.13
+Age 80 or older,Female,Very good,4505,10.23
+Age 80 or older,Male,Excellent,1049,14.68
+Age 80 or older,Male,Fair,1848,40.75
+Age 80 or older,Male,Good,3422,32.14
+Age 80 or older,Male,Poor,691,52.68
+Age 80 or older,Male,Very good,2723,23.06

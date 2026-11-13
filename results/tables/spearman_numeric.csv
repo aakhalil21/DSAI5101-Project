@@ -1,0 +1,7 @@
+,BMI,SleepHours,PhysicalHealthDays,MentalHealthDays,HeightInMeters,WeightInKilograms
+BMI,1.0,-0.067,0.098,0.038,0.015,0.847
+SleepHours,-0.067,1.0,-0.082,-0.15,-0.014,-0.065
+PhysicalHealthDays,0.098,-0.082,1.0,0.313,-0.055,0.058
+MentalHealthDays,0.038,-0.15,0.313,1.0,-0.064,0.005
+HeightInMeters,0.015,-0.014,-0.055,-0.064,1.0,0.506
+WeightInKilograms,0.847,-0.065,0.058,0.005,0.506,1.0

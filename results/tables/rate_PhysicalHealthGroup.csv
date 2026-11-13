@@ -1,0 +1,5 @@
+PhysicalHealthGroup,n,cases,heart_disease_pct
+0 days,185732,11865,6.39
+1-7 days,65429,5353,8.18
+8-30 days,49641,9557,19.25
+Missing,7278,1051,14.44

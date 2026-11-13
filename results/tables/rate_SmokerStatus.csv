@@ -1,0 +1,6 @@
+SmokerStatus,n,cases,heart_disease_pct
+Never smoked,170841,11183,6.55
+Former smoker,78630,10686,13.59
+Current smoker - now smokes some days,9601,935,9.74
+Current smoker - now smokes every day,24720,3036,12.28
+Missing,24288,1986,8.18

@@ -1,0 +1,101 @@
+AgeCategory,Sex,HadDiabetes,n,heart_disease_pct
+Age 18 to 24,Female,No,7795,0.58
+Age 18 to 24,Female,"No, pre-diabetes or borderline diabetes",75,2.67
+Age 18 to 24,Female,Yes,106,2.83
+Age 18 to 24,Female,"Yes, but only during pregnancy (female)",109,2.75
+Age 18 to 24,Male,No,10323,0.77
+Age 18 to 24,Male,"No, pre-diabetes or borderline diabetes",69,1.45
+Age 18 to 24,Male,Yes,133,7.52
+Age 18 to 24,Male,"Yes, but only during pregnancy (female)",2,0.0
+Age 25 to 29,Female,No,6850,0.79
+Age 25 to 29,Female,"No, pre-diabetes or borderline diabetes",82,2.44
+Age 25 to 29,Female,Yes,149,4.03
+Age 25 to 29,Female,"Yes, but only during pregnancy (female)",167,1.8
+Age 25 to 29,Male,No,7870,0.98
+Age 25 to 29,Male,"No, pre-diabetes or borderline diabetes",59,0.0
+Age 25 to 29,Male,Yes,124,7.26
+Age 25 to 29,Male,"Yes, but only during pregnancy (female)",1,0.0
+Age 30 to 34,Female,No,8285,0.92
+Age 30 to 34,Female,"No, pre-diabetes or borderline diabetes",147,4.08
+Age 30 to 34,Female,Yes,261,3.45
+Age 30 to 34,Female,"Yes, but only during pregnancy (female)",311,0.96
+Age 30 to 34,Male,No,8613,1.32
+Age 30 to 34,Male,"No, pre-diabetes or borderline diabetes",79,2.53
+Age 30 to 34,Male,Yes,198,4.55
+Age 30 to 34,Male,"Yes, but only during pregnancy (female)",1,100.0
+Age 35 to 39,Female,No,9180,1.32
+Age 35 to 39,Female,"No, pre-diabetes or borderline diabetes",149,1.34
+Age 35 to 39,Female,Yes,412,7.04
+Age 35 to 39,Female,"Yes, but only during pregnancy (female)",394,0.25
+Age 35 to 39,Male,No,9159,1.51
+Age 35 to 39,Male,"No, pre-diabetes or borderline diabetes",138,2.9
+Age 35 to 39,Male,Yes,427,6.56
+Age 35 to 39,Male,"Yes, but only during pregnancy (female)",2,0.0
+Age 40 to 44,Female,No,9575,1.62
+Age 40 to 44,Female,"No, pre-diabetes or borderline diabetes",200,4.0
+Age 40 to 44,Female,Yes,742,6.47
+Age 40 to 44,Female,"Yes, but only during pregnancy (female)",341,2.93
+Age 40 to 44,Male,No,9075,2.14
+Age 40 to 44,Male,"No, pre-diabetes or borderline diabetes",164,6.1
+Age 40 to 44,Male,Yes,645,9.15
+Age 40 to 44,Male,"Yes, but only during pregnancy (female)",2,0.0
+Age 45 to 49,Female,No,8933,2.45
+Age 45 to 49,Female,"No, pre-diabetes or borderline diabetes",239,3.35
+Age 45 to 49,Female,Yes,983,10.38
+Age 45 to 49,Female,"Yes, but only during pregnancy (female)",257,2.33
+Age 45 to 49,Male,No,8228,3.06
+Age 45 to 49,Male,"No, pre-diabetes or borderline diabetes",206,8.25
+Age 45 to 49,Male,Yes,975,13.23
+Age 45 to 49,Male,"Yes, but only during pregnancy (female)",3,0.0
+Age 50 to 54,Female,No,10243,3.39
+Age 50 to 54,Female,"No, pre-diabetes or borderline diabetes",334,7.78
+Age 50 to 54,Female,Yes,1555,11.64
+Age 50 to 54,Female,"Yes, but only during pregnancy (female)",236,3.81
+Age 50 to 54,Male,No,9064,5.0
+Age 50 to 54,Male,"No, pre-diabetes or borderline diabetes",265,12.45
+Age 50 to 54,Male,Yes,1479,15.62
+Age 50 to 54,Male,"Yes, but only during pregnancy (female)",1,0.0
+Age 55 to 59,Female,No,10795,4.59
+Age 55 to 59,Female,"No, pre-diabetes or borderline diabetes",407,9.58
+Age 55 to 59,Female,Yes,2081,14.9
+Age 55 to 59,Female,"Yes, but only during pregnancy (female)",196,5.1
+Age 55 to 59,Male,No,9556,7.02
+Age 55 to 59,Male,"No, pre-diabetes or borderline diabetes",297,13.47
+Age 55 to 59,Male,Yes,2112,21.59
+Age 55 to 59,Male,"Yes, but only during pregnancy (female)",1,0.0
+Age 60 to 64,Female,No,13223,5.57
+Age 60 to 64,Female,"No, pre-diabetes or borderline diabetes",523,7.07
+Age 60 to 64,Female,Yes,2784,15.3
+Age 60 to 64,Female,"Yes, but only during pregnancy (female)",167,7.19
+Age 60 to 64,Male,No,10939,10.48
+Age 60 to 64,Male,"No, pre-diabetes or borderline diabetes",401,15.96
+Age 60 to 64,Male,Yes,2799,23.4
+Age 65 to 69,Female,No,13611,6.48
+Age 65 to 69,Female,"No, pre-diabetes or borderline diabetes",469,11.3
+Age 65 to 69,Female,Yes,3319,17.6
+Age 65 to 69,Female,"Yes, but only during pregnancy (female)",155,8.39
+Age 65 to 69,Male,No,11221,13.52
+Age 65 to 69,Male,"No, pre-diabetes or borderline diabetes",458,15.07
+Age 65 to 69,Male,Yes,3335,27.05
+Age 70 to 74,Female,No,12220,8.35
+Age 70 to 74,Female,"No, pre-diabetes or borderline diabetes",510,15.29
+Age 70 to 74,Female,Yes,3421,19.99
+Age 70 to 74,Female,"Yes, but only during pregnancy (female)",119,16.81
+Age 70 to 74,Male,No,10002,18.05
+Age 70 to 74,Male,"No, pre-diabetes or borderline diabetes",398,24.62
+Age 70 to 74,Male,Yes,3401,32.14
+Age 70 to 74,Male,"Yes, but only during pregnancy (female)",1,0.0
+Age 75 to 79,Female,No,9590,11.5
+Age 75 to 79,Female,"No, pre-diabetes or borderline diabetes",364,15.38
+Age 75 to 79,Female,Yes,2602,22.83
+Age 75 to 79,Female,"Yes, but only during pregnancy (female)",76,19.74
+Age 75 to 79,Male,No,6854,22.69
+Age 75 to 79,Male,"No, pre-diabetes or borderline diabetes",281,26.69
+Age 75 to 79,Male,Yes,2665,34.75
+Age 80 or older,Female,No,11834,16.78
+Age 80 or older,Female,"No, pre-diabetes or borderline diabetes",363,18.18
+Age 80 or older,Female,Yes,2633,27.08
+Age 80 or older,Female,"Yes, but only during pregnancy (female)",107,18.69
+Age 80 or older,Male,No,7320,28.14
+Age 80 or older,Male,"No, pre-diabetes or borderline diabetes",268,30.97
+Age 80 or older,Male,Yes,2173,40.08

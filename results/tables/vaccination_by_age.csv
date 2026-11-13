@@ -1,0 +1,155 @@
+Feature,AgeCategory,FluVaxLast12,Total,Heart_Disease_Rate,PneumoVaxEver,TetanusLast10Tdap
+FluVaxLast12,Age 18 to 24,Missing,2046,0.9286412512218964,,
+FluVaxLast12,Age 18 to 24,No,11233,0.8101130597347103,,
+FluVaxLast12,Age 18 to 24,Yes,5389,0.6494711449248469,,
+FluVaxLast12,Age 25 to 29,Missing,1575,1.5873015873015872,,
+FluVaxLast12,Age 25 to 29,No,9094,0.9016934242357598,,
+FluVaxLast12,Age 25 to 29,Yes,4661,0.9654580562111135,,
+FluVaxLast12,Age 30 to 34,Missing,2033,1.278898180029513,,
+FluVaxLast12,Age 30 to 34,No,10198,1.2943714453814474,,
+FluVaxLast12,Age 30 to 34,Yes,5698,1.1056511056511056,,
+FluVaxLast12,Age 35 to 39,Missing,2249,1.8674966651845264,,
+FluVaxLast12,Age 35 to 39,No,10928,1.6471449487554906,,
+FluVaxLast12,Age 35 to 39,Yes,6708,1.550387596899225,,
+FluVaxLast12,Age 40 to 44,Missing,2311,2.4664647338814367,,
+FluVaxLast12,Age 40 to 44,No,11116,2.32097876934149,,
+FluVaxLast12,Age 40 to 44,Yes,7348,2.367991290146979,,
+FluVaxLast12,Age 45 to 49,Missing,2217,3.5182679296346415,,
+FluVaxLast12,Age 45 to 49,No,10246,3.7087643958617993,,
+FluVaxLast12,Age 45 to 49,Yes,7386,3.777416734362307,,
+FluVaxLast12,Age 50 to 54,Missing,2561,5.310425614994143,,
+FluVaxLast12,Age 50 to 54,No,11557,5.537769317296877,,
+FluVaxLast12,Age 50 to 54,Yes,9092,5.565332160140783,,
+FluVaxLast12,Age 55 to 59,Missing,2612,8.652373660030628,,
+FluVaxLast12,Age 55 to 59,No,11576,7.645127850725639,,
+FluVaxLast12,Age 55 to 59,Yes,11295,8.100929614873838,,
+FluVaxLast12,Age 60 to 64,Missing,3089,9.647134995144059,,
+FluVaxLast12,Age 60 to 64,No,12366,10.059841500889535,,
+FluVaxLast12,Age 60 to 64,Yes,15424,10.003890041493776,,
+FluVaxLast12,Age 65 to 69,Missing,2966,12.778152393796358,,
+FluVaxLast12,Age 65 to 69,No,10572,11.852062050699962,,
+FluVaxLast12,Age 65 to 69,Yes,19076,12.555042985950934,,
+FluVaxLast12,Age 70 to 74,Missing,2580,15.077519379844961,,
+FluVaxLast12,Age 70 to 74,No,8322,15.368901706320596,,
+FluVaxLast12,Age 70 to 74,Yes,19215,16.336195680457976,,
+FluVaxLast12,Age 75 to 79,Missing,1978,18.958543983822043,,
+FluVaxLast12,Age 75 to 79,No,5441,19.040617533541628,,
+FluVaxLast12,Age 75 to 79,Yes,15044,19.409731454400426,,
+FluVaxLast12,Age 80 or older,Missing,2474,21.827000808407437,,
+FluVaxLast12,Age 80 or older,No,5742,21.87391152908394,,
+FluVaxLast12,Age 80 or older,Yes,16526,24.288999152850053,,
+FluVaxLast12,,Missing,1636,5.134474327628362,,
+FluVaxLast12,,No,2183,4.809894640403115,,
+FluVaxLast12,,Yes,2317,8.588692274492878,,
+PneumoVaxEver,Age 18 to 24,,5491,0.582771808413768,Missing,
+PneumoVaxEver,Age 18 to 24,,9894,0.8692136648473823,No,
+PneumoVaxEver,Age 18 to 24,,3283,0.8224185196466647,Yes,
+PneumoVaxEver,Age 25 to 29,,4140,1.0628019323671498,Missing,
+PneumoVaxEver,Age 25 to 29,,9006,0.8105707306240285,No,
+PneumoVaxEver,Age 25 to 29,,2184,1.6025641025641024,Yes,
+PneumoVaxEver,Age 30 to 34,,4494,1.1793502447708055,Missing,
+PneumoVaxEver,Age 30 to 34,,11160,1.0752688172043012,No,
+PneumoVaxEver,Age 30 to 34,,2275,2.10989010989011,Yes,
+PneumoVaxEver,Age 35 to 39,,4519,1.65965921664085,Missing,
+PneumoVaxEver,Age 35 to 39,,12863,1.3449428593640673,No,
+PneumoVaxEver,Age 35 to 39,,2503,3.116260487415102,Yes,
+PneumoVaxEver,Age 40 to 44,,4209,2.3521026372059874,Missing,
+PneumoVaxEver,Age 40 to 44,,13903,1.884485362871323,No,
+PneumoVaxEver,Age 40 to 44,,2663,4.806609087495306,Yes,
+PneumoVaxEver,Age 45 to 49,,3578,3.2140860816098376,Missing,
+PneumoVaxEver,Age 45 to 49,,13504,2.962085308056872,No,
+PneumoVaxEver,Age 45 to 49,,2767,8.023129743404409,Yes,
+PneumoVaxEver,Age 50 to 54,,3734,5.249062667380825,Missing,
+PneumoVaxEver,Age 50 to 54,,15424,4.129927385892116,No,
+PneumoVaxEver,Age 50 to 54,,4052,11.080947680157948,Yes,
+PneumoVaxEver,Age 55 to 59,,3624,8.416114790286976,Missing,
+PneumoVaxEver,Age 55 to 59,,16129,5.952011904023808,No,
+PneumoVaxEver,Age 55 to 59,,5730,13.280977312390924,Yes,
+PneumoVaxEver,Age 60 to 64,,4172,9.995206136145733,Missing,
+PneumoVaxEver,Age 60 to 64,,18021,7.507907441318462,No,
+PneumoVaxEver,Age 60 to 64,,8686,15.139304628137232,Yes,
+PneumoVaxEver,Age 65 to 69,,3780,12.328042328042327,Missing,
+PneumoVaxEver,Age 65 to 69,,11149,9.938111041349,No,
+PneumoVaxEver,Age 65 to 69,,17685,13.870511733107152,Yes,
+PneumoVaxEver,Age 70 to 74,,3295,15.174506828528072,Missing,
+PneumoVaxEver,Age 70 to 74,,6661,14.172046239303407,No,
+PneumoVaxEver,Age 70 to 74,,20161,16.680720202370914,Yes,
+PneumoVaxEver,Age 75 to 79,,2606,19.301611665387565,Missing,
+PneumoVaxEver,Age 75 to 79,,4324,17.183163737280296,No,
+PneumoVaxEver,Age 75 to 79,,15533,19.860941221914633,Yes,
+PneumoVaxEver,Age 80 or older,,3390,22.123893805309734,Missing,
+PneumoVaxEver,Age 80 or older,,4975,20.42211055276382,No,
+PneumoVaxEver,Age 80 or older,,16377,24.693167246748487,Yes,
+PneumoVaxEver,,,1969,4.57084814626714,Missing,
+PneumoVaxEver,,,2453,4.321239298817774,No,
+PneumoVaxEver,,,1714,11.201866977829638,Yes,
+TetanusLast10Tdap,Age 18 to 24,,4026,0.8445106805762544,,Missing
+TetanusLast10Tdap,Age 18 to 24,,4708,0.8071367884451998,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 18 to 24,,4459,0.8073559093967256,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 18 to 24,,4650,0.6666666666666667,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 18 to 24,,825,0.7272727272727273,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 25 to 29,,2902,1.0337698139214335,,Missing
+TetanusLast10Tdap,Age 25 to 29,,3766,1.0621348911311737,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 25 to 29,,4394,0.9330905780609923,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 25 to 29,,3598,1.000555864369094,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 25 to 29,,670,0.7462686567164178,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 30 to 34,,3454,1.2449334105385061,,Missing
+TetanusLast10Tdap,Age 30 to 34,,4437,1.3071895424836601,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 30 to 34,,5541,1.1189316007940806,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 30 to 34,,3752,1.3326226012793176,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 30 to 34,,745,1.0738255033557047,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 35 to 39,,3784,1.6913319238900635,,Missing
+TetanusLast10Tdap,Age 35 to 39,,4729,1.3956438993444702,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 35 to 39,,6303,1.602411550055529,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 35 to 39,,4130,1.9854721549636805,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 35 to 39,,939,1.384451544195953,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 40 to 44,,3875,2.3483870967741938,,Missing
+TetanusLast10Tdap,Age 40 to 44,,5078,2.2646711303662856,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 40 to 44,,5984,2.0053475935828877,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 40 to 44,,4830,2.753623188405797,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 40 to 44,,1008,2.976190476190476,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 45 to 49,,3683,3.4754276405104534,,Missing
+TetanusLast10Tdap,Age 45 to 49,,5169,3.5983749274521184,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 45 to 49,,4947,3.5981402870426518,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 45 to 49,,4950,4.0,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 45 to 49,,1100,4.2727272727272725,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 50 to 54,,4307,5.4562340376131875,,Missing
+TetanusLast10Tdap,Age 50 to 54,,6120,5.032679738562091,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 50 to 54,,5064,5.568720379146919,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 50 to 54,,6187,5.802489090027477,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 50 to 54,,1532,6.396866840731071,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 55 to 59,,4407,8.441116405718176,,Missing
+TetanusLast10Tdap,Age 55 to 59,,6611,7.548026017243988,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 55 to 59,,5377,7.699460665798773,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 55 to 59,,7150,8.20979020979021,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 55 to 59,,1938,7.946336429308566,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 60 to 64,,5294,9.992444276539478,,Missing
+TetanusLast10Tdap,Age 60 to 64,,8122,10.132972174341296,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 60 to 64,,6514,8.105618667485416,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 60 to 64,,8552,10.933115060804491,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 60 to 64,,2397,11.264080100125156,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 65 to 69,,5305,11.875589066918002,,Missing
+TetanusLast10Tdap,Age 65 to 69,,8913,12.46493885336026,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 65 to 69,,7122,11.527660769446785,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 65 to 69,,8880,13.085585585585585,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 65 to 69,,2394,12.656641604010025,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 70 to 74,,4899,15.288834456011429,,Missing
+TetanusLast10Tdap,Age 70 to 74,,8848,15.890596745027125,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 70 to 74,,6072,14.871541501976285,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 70 to 74,,8185,17.06780696395846,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 70 to 74,,2113,16.658778987221957,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 75 to 79,,3879,19.23176076308327,,Missing
+TetanusLast10Tdap,Age 75 to 79,,7117,18.814107067584658,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 75 to 79,,3833,17.688494651708844,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 75 to 79,,6123,20.529152376286135,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 75 to 79,,1511,20.58239576439444,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,Age 80 or older,,4748,22.767481044650378,,Missing
+TetanusLast10Tdap,Age 80 or older,,9197,22.90964444927694,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,Age 80 or older,,2950,23.050847457627118,,"Yes, received Tdap"
+TetanusLast10Tdap,Age 80 or older,,6228,24.93577392421323,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,Age 80 or older,,1619,24.027177269919704,,"Yes, received tetanus shot, but not Tdap"
+TetanusLast10Tdap,,,2118,5.712936732766761,,Missing
+TetanusLast10Tdap,,,1344,6.770833333333333,,"No, did not receive any tetanus shot in the past 10 years"
+TetanusLast10Tdap,,,1008,5.654761904761905,,"Yes, received Tdap"
+TetanusLast10Tdap,,,1376,6.831395348837209,,"Yes, received tetanus shot but not sure what type"
+TetanusLast10Tdap,,,290,8.620689655172415,,"Yes, received tetanus shot, but not Tdap"

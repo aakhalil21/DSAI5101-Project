@@ -1,0 +1,5 @@
+,HeightInMeters,HeightInMeters,HeightInMeters,HeightInMeters,WeightInKilograms,WeightInKilograms,WeightInKilograms,WeightInKilograms
+,count,mean,median,std,count,mean,median,std
+heart_disease,,,,,,,,
+0,262205,1.7023901146049847,1.7,0.10701146793268157,253539,82.7718679571979,79.83,21.369627405566447
+1,26455,1.7082702702702703,1.7,0.10893410037089953,25813,86.32065897028629,83.91,22.098269829093972

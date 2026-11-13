@@ -1,0 +1,8 @@
+BMI_Group,n,cases,heart_disease_pct
+Missing,33328,2289,6.87
+Normal,81150,5887,7.25
+Obesity Class I,53569,5787,10.8
+Obesity Class II,22731,2556,11.24
+Obesity Class III,15498,1698,10.96
+Overweight,97109,9205,9.48
+Underweight,4695,404,8.6

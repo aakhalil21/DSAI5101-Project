@@ -1,0 +1,6 @@
+HadDiabetes,n,cases,heart_disease_pct
+No,255555,17566,6.87
+"No, pre-diabetes or borderline diabetes",7024,886,12.61
+Yes,42281,9183,21.72
+"Yes, but only during pregnancy (female)",2696,127,4.71
+Missing,524,64,12.21

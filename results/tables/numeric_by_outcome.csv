@@ -1,0 +1,5 @@
+,BMI,BMI,BMI,SleepHours,SleepHours,SleepHours,PhysicalHealthDays,PhysicalHealthDays,PhysicalHealthDays,MentalHealthDays,MentalHealthDays,MentalHealthDays,HeightInMeters,HeightInMeters,HeightInMeters,WeightInKilograms,WeightInKilograms,WeightInKilograms
+,count,median,mean,count,median,mean,count,median,mean,count,median,mean,count,median,mean,count,median,mean
+heart_disease,,,,,,,,,,,,,,,,,,
+0,249215,27.37,28.43,277227,7.0,7.02,274027,0.0,3.84,274968,0.0,4.28,262205,1.7,1.7,253539,79.83,82.77
+1,25537,28.34,29.44,27328,7.0,7.06,26775,2.0,9.15,27070,0.0,5.22,26455,1.7,1.71,25813,83.91,86.32

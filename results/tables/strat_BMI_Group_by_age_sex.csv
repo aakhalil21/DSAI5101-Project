@@ -1,0 +1,157 @@
+AgeCategory,Sex,BMI_Group,n,heart_disease_pct
+Age 18 to 24,Female,Underweight,334,0.9
+Age 18 to 24,Female,Normal,3406,0.56
+Age 18 to 24,Female,Overweight,1624,0.37
+Age 18 to 24,Female,Obesity Class I,843,0.36
+Age 18 to 24,Female,Obesity Class II,404,1.24
+Age 18 to 24,Female,Obesity Class III,331,0.6
+Age 18 to 24,Male,Underweight,470,1.7
+Age 18 to 24,Male,Normal,4499,0.69
+Age 18 to 24,Male,Overweight,2664,0.75
+Age 18 to 24,Male,Obesity Class I,1192,1.17
+Age 18 to 24,Male,Obesity Class II,453,0.44
+Age 18 to 24,Male,Obesity Class III,315,0.63
+Age 25 to 29,Female,Underweight,143,2.1
+Age 25 to 29,Female,Normal,2330,0.56
+Age 25 to 29,Female,Overweight,1615,0.99
+Age 25 to 29,Female,Obesity Class I,998,0.8
+Age 25 to 29,Female,Obesity Class II,521,1.73
+Age 25 to 29,Female,Obesity Class III,475,1.89
+Age 25 to 29,Male,Underweight,162,2.47
+Age 25 to 29,Male,Normal,2605,0.81
+Age 25 to 29,Male,Overweight,2669,1.09
+Age 25 to 29,Male,Obesity Class I,1125,0.8
+Age 25 to 29,Male,Obesity Class II,492,0.61
+Age 25 to 29,Male,Obesity Class III,324,1.54
+Age 30 to 34,Female,Underweight,123,1.63
+Age 30 to 34,Female,Normal,2534,0.83
+Age 30 to 34,Female,Overweight,2017,0.69
+Age 30 to 34,Female,Obesity Class I,1290,0.7
+Age 30 to 34,Female,Obesity Class II,768,1.43
+Age 30 to 34,Female,Obesity Class III,736,2.17
+Age 30 to 34,Male,Underweight,96,2.08
+Age 30 to 34,Male,Normal,2383,1.26
+Age 30 to 34,Male,Overweight,3124,1.22
+Age 30 to 34,Male,Obesity Class I,1486,1.62
+Age 30 to 34,Male,Obesity Class II,612,2.29
+Age 30 to 34,Male,Obesity Class III,425,1.88
+Age 35 to 39,Female,Underweight,137,4.38
+Age 35 to 39,Female,Normal,2832,1.27
+Age 35 to 39,Female,Overweight,2412,1.08
+Age 35 to 39,Female,Obesity Class I,1574,1.91
+Age 35 to 39,Female,Obesity Class II,850,1.06
+Age 35 to 39,Female,Obesity Class III,791,2.91
+Age 35 to 39,Male,Underweight,94,5.32
+Age 35 to 39,Male,Normal,2192,1.82
+Age 35 to 39,Male,Overweight,3572,1.32
+Age 35 to 39,Male,Obesity Class I,1896,1.74
+Age 35 to 39,Male,Obesity Class II,723,2.35
+Age 35 to 39,Male,Obesity Class III,465,3.87
+Age 40 to 44,Female,Underweight,133,3.76
+Age 40 to 44,Female,Normal,2872,1.29
+Age 40 to 44,Female,Overweight,2765,1.88
+Age 40 to 44,Female,Obesity Class I,1749,2.4
+Age 40 to 44,Female,Obesity Class II,976,2.25
+Age 40 to 44,Female,Obesity Class III,916,3.38
+Age 40 to 44,Male,Underweight,60,5.0
+Age 40 to 44,Male,Normal,1948,2.46
+Age 40 to 44,Male,Overweight,3718,2.02
+Age 40 to 44,Male,Obesity Class I,1960,2.91
+Age 40 to 44,Male,Obesity Class II,803,3.61
+Age 40 to 44,Male,Obesity Class III,565,5.66
+Age 45 to 49,Female,Underweight,114,4.39
+Age 45 to 49,Female,Normal,2624,2.25
+Age 45 to 49,Female,Overweight,2640,2.54
+Age 45 to 49,Female,Obesity Class I,1832,3.82
+Age 45 to 49,Female,Obesity Class II,964,4.77
+Age 45 to 49,Female,Obesity Class III,827,5.44
+Age 45 to 49,Male,Underweight,59,8.47
+Age 45 to 49,Male,Normal,1652,3.27
+Age 45 to 49,Male,Overweight,3490,3.18
+Age 45 to 49,Male,Obesity Class I,2046,4.94
+Age 45 to 49,Male,Obesity Class II,901,6.66
+Age 45 to 49,Male,Obesity Class III,559,8.23
+Age 50 to 54,Female,Underweight,138,5.8
+Age 50 to 54,Female,Normal,3007,3.23
+Age 50 to 54,Female,Overweight,3139,3.6
+Age 50 to 54,Female,Obesity Class I,2222,5.27
+Age 50 to 54,Female,Obesity Class II,1182,6.18
+Age 50 to 54,Female,Obesity Class III,1048,8.78
+Age 50 to 54,Male,Underweight,83,8.43
+Age 50 to 54,Male,Normal,1715,5.66
+Age 50 to 54,Male,Overweight,4100,5.44
+Age 50 to 54,Male,Obesity Class I,2474,6.39
+Age 50 to 54,Male,Obesity Class II,1044,9.96
+Age 50 to 54,Male,Obesity Class III,612,12.58
+Age 55 to 59,Female,Underweight,191,9.95
+Age 55 to 59,Female,Normal,3357,4.35
+Age 55 to 59,Female,Overweight,3550,5.72
+Age 55 to 59,Female,Obesity Class I,2393,7.15
+Age 55 to 59,Female,Obesity Class II,1169,8.04
+Age 55 to 59,Female,Obesity Class III,1015,10.34
+Age 55 to 59,Male,Underweight,67,14.93
+Age 55 to 59,Male,Normal,1983,7.11
+Age 55 to 59,Male,Overweight,4641,8.45
+Age 55 to 59,Male,Obesity Class I,2864,10.82
+Age 55 to 59,Male,Obesity Class II,1081,13.32
+Age 55 to 59,Male,Obesity Class III,605,15.87
+Age 60 to 64,Female,Underweight,275,7.27
+Age 60 to 64,Female,Normal,4384,5.59
+Age 60 to 64,Female,Overweight,4543,7.31
+Age 60 to 64,Female,Obesity Class I,2859,7.76
+Age 60 to 64,Female,Obesity Class II,1437,9.6
+Age 60 to 64,Female,Obesity Class III,1053,11.11
+Age 60 to 64,Male,Underweight,116,15.52
+Age 60 to 64,Male,Normal,2650,11.51
+Age 60 to 64,Male,Overweight,5557,11.41
+Age 60 to 64,Male,Obesity Class I,3080,14.29
+Age 60 to 64,Male,Obesity Class II,1213,19.04
+Age 60 to 64,Male,Obesity Class III,695,19.42
+Age 65 to 69,Female,Underweight,318,8.18
+Age 65 to 69,Female,Normal,4843,5.82
+Age 65 to 69,Female,Overweight,4808,8.01
+Age 65 to 69,Female,Obesity Class I,3060,10.85
+Age 65 to 69,Female,Obesity Class II,1405,12.53
+Age 65 to 69,Female,Obesity Class III,1003,15.95
+Age 65 to 69,Male,Underweight,111,13.51
+Age 65 to 69,Male,Normal,2980,12.21
+Age 65 to 69,Male,Overweight,6181,15.47
+Age 65 to 69,Male,Obesity Class I,3268,19.28
+Age 65 to 69,Male,Obesity Class II,1161,22.65
+Age 65 to 69,Male,Obesity Class III,557,25.13
+Age 70 to 74,Female,Underweight,307,12.7
+Age 70 to 74,Female,Normal,4631,8.21
+Age 70 to 74,Female,Overweight,4705,9.95
+Age 70 to 74,Female,Obesity Class I,2750,13.31
+Age 70 to 74,Female,Obesity Class II,1226,16.97
+Age 70 to 74,Female,Obesity Class III,734,19.07
+Age 70 to 74,Male,Underweight,105,17.14
+Age 70 to 74,Male,Normal,3119,16.93
+Age 70 to 74,Male,Overweight,5709,20.86
+Age 70 to 74,Male,Obesity Class I,2856,25.0
+Age 70 to 74,Male,Obesity Class II,967,27.92
+Age 70 to 74,Male,Obesity Class III,415,32.77
+Age 75 to 79,Female,Underweight,298,9.06
+Age 75 to 79,Female,Normal,3954,11.1
+Age 75 to 79,Female,Overweight,3894,14.02
+Age 75 to 79,Female,Obesity Class I,2014,17.28
+Age 75 to 79,Female,Obesity Class II,755,19.21
+Age 75 to 79,Female,Obesity Class III,390,21.54
+Age 75 to 79,Male,Underweight,73,21.92
+Age 75 to 79,Male,Normal,2385,22.6
+Age 75 to 79,Male,Overweight,4260,24.06
+Age 75 to 79,Male,Obesity Class I,1857,32.42
+Age 75 to 79,Male,Obesity Class II,573,33.33
+Age 75 to 79,Male,Obesity Class III,228,35.53
+Age 80 or older,Female,Underweight,488,17.83
+Age 80 or older,Female,Normal,5945,16.45
+Age 80 or older,Female,Overweight,4362,19.39
+Age 80 or older,Female,Obesity Class I,1923,21.74
+Age 80 or older,Female,Obesity Class II,567,27.69
+Age 80 or older,Female,Obesity Class III,220,25.45
+Age 80 or older,Male,Underweight,118,31.36
+Age 80 or older,Male,Normal,3164,27.94
+Age 80 or older,Male,Overweight,4157,31.03
+Age 80 or older,Male,Obesity Class I,1452,35.19
+Age 80 or older,Male,Obesity Class II,322,36.96
+Age 80 or older,Male,Obesity Class III,76,38.16
