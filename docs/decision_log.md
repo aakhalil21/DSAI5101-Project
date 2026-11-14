@@ -88,3 +88,22 @@ Status of each item in "Remaining work" above after the EDA (the original list i
 - Fit preprocessing within each cross-validation training fold when models are built: open (modelling).
 - Compare alternative preprocessing on validation data with Member 3: open (modelling). The EDA suggests candidates: grouped vs continuous sleep and missingness indicators (see the table above).
 - Reserve test evaluation until model decisions are frozen: still in force; the EDA did not read the validation or test splits.
+
+## Modelling decisions (Member 3, 14 Nov 2026)
+
+12. Exclude `ChestScan` and `PneumoVaxEver` from the primary predictors.
+    Reason: the timing of the scan or vaccination relative to the heart disease
+    diagnosis is unknown. Both may be a result of the diagnosis: people with heart
+    disease are scanned during cardiac work-up, and CDC recommends pneumococcal
+    vaccination for adults with chronic heart disease. Using them risks reverse
+    causality / temporal leakage. They stay in the data for EDA and Q2 context.
+    Evidence (training split): 77.3% of heart-disease cases had a chest CT vs 39.0%
+    of others; pneumococcal vaccination 67.0% vs 38.7%. The gaps hold within every
+    age band and among never-smokers without COPD.
+    Enforced in code: `src/modelling.py` (`POST_DIAGNOSIS_FEATURES`) and a check
+    in `notebooks/04_modelling.ipynb` that stops if either column reaches the model.
+    This decision was recorded before any model results were seen.
+
+13. Model selection uses validation average precision (AP) only; the test split
+    stays closed until all settings, preparation choices and thresholds are frozen
+    in `results/modelling/frozen_settings.json`.
