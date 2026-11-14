@@ -24,9 +24,17 @@ Expected rows: training **308,080**, validation **66,016**, test **66,015**, unk
 | `data/processed/observed/` | Authoritative splits with original predictor values and missingness |
 | `data/processed/imputed/` | Optional filled copies of the same splits |
 | `data/archive/` | Historical files only |
+| `results/tables/` | EDA summary tables written by `notebooks/03_eda.ipynb` |
+| `results/figures/` | EDA figures written by `notebooks/03_eda.ipynb` (regenerated copies of figures 10 and 13 in `results/figures/_regenerated/`) |
+| `results/output_manifest.csv` | Every saved table and figure, the notebook cell that writes it, and whether it is reproduced and cited in the EDA report |
+| `Reports/` | Project proposal and the Member 2 EDA summary report |
 
 Member 2 should open **`data/processed/observed/training.csv`** for EDA and observed-value associations. Member 3 should use the observed splits for modeling, fitting preprocessing within each training fold during cross-validation. Keep missing values visible and report denominators. Use validation only for model decisions and test only for final evaluation. `heart_disease` stays in each saved dataset, but separate it as `y`; do not include it in `X`. `row_id` and `duplicate_group` are metadata, never predictors.
 
 For a primary model, call `src.preprocessing.make_preprocessor(training_frame)` to get a fresh, unfitted transformer, and place it inside the estimator `Pipeline` during cross-validation. It keeps BMI, excludes height and weight, and fits imputation and encoding within each training fold. If filled copies are needed for a separate downstream use, run `py src/prepare_data.py --write-imputed`. This fits numeric medians and the categorical `Missing` rule on the entire observed training split, then applies those fitted rules to validation and test. It fills predictors only and preserves IDs and target labels. **Do not use `data/processed/imputed/` for observed-data associations or cross-validation**; whole-training imputation would leak information across CV folds. `data/archive/legacy_imputed_splits.zip` and `data/archive/supplied_raw_valued_splits.zip` are historical artifacts.
 
-The maintained notebook is `notebooks/02_data_preparation_copy.ipynb`. The original `notebooks/02_data_preparation.ipynb` is preserved byte for byte for comparison; its old path references are historical and should not be run as the active workflow. See [decision log](docs/decision_log.md) and [data dictionary](docs/data_dictionary.csv). The proposal remains in `reports/`.
+The maintained notebook is `notebooks/02_data_preparation.ipynb`. The original is preserved byte for byte as `notebooks/archive/02_data_preparation_original.ipynb` for comparison; its old path references are historical and should not be run as the active workflow. See [decision log](docs/decision_log.md) and [data dictionary](docs/data_dictionary.csv). The proposal and the EDA summary report are in `Reports/`.
+
+## EDA outputs
+
+`notebooks/03_eda.ipynb` uses paths relative to `notebooks/`; `py -m jupyter nbconvert --to notebook --execute --inplace notebooks/03_eda.ipynb` runs it there from the repository root. It reads only the observed training split and writes tables to `results/tables/` and figures to `results/figures/`. `results/output_manifest.csv` lists each output with its generating cell.
