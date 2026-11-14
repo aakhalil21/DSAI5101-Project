@@ -1,0 +1,37 @@
+{
+  "frozen_on": "2026-11-14",
+  "seed": 42,
+  "excluded_features": [
+    "heart_disease",
+    "row_id",
+    "duplicate_group",
+    "HadHeartAttack",
+    "HadAngina",
+    "ChestScan",
+    "PneumoVaxEver"
+  ],
+  "adopted_checks": {
+    "A_no_missing_flags": false,
+    "B_height_weight": false,
+    "C_sleep_groups": false
+  },
+  "logistic_regression": {
+    "C": 0.1,
+    "class_weight": null,
+    "max_iter": 2000,
+    "threshold": 0.2154710363672758
+  },
+  "random_forest": {
+    "n_estimators": 200,
+    "max_features": "sqrt",
+    "max_depth": null,
+    "min_samples_leaf": 20,
+    "class_weight": "balanced_subsample",
+    "threshold": 0.6296148236752989
+  },
+  "versions": {
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3"
+  }
+}

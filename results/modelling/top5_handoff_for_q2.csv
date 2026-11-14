@@ -1,0 +1,6 @@
+model,feature,ap_drop_mean,ap_drop_sd,rank,rank_in_random_forest
+Logistic regression,AgeCategory,0.10163397401021194,0.006416673731322131,1,2
+Logistic regression,GeneralHealth,0.05193988767914888,0.0030711950041692293,2,4
+Logistic regression,Sex,0.026957823474247168,0.0047149624222215195,3,3
+Logistic regression,HadStroke,0.021910528352270486,0.0034153585597679046,4,1
+Logistic regression,HadKidneyDisease,0.008805839183188701,0.0021934455439289033,5,8
