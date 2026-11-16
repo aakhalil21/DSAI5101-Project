@@ -107,3 +107,18 @@ Status of each item in "Remaining work" above after the EDA (the original list i
 13. Model selection uses validation average precision (AP) only; the test split
     stays closed until all settings, preparation choices and thresholds are frozen
     in `results/modelling/frozen_settings.json`.
+
+## Modelling robustness checks (Member 3)
+
+14. Predictor ranking is stable. Permutation importance was repeated with seeds 7 and 21
+    (random forest refitted per seed; same 10,000-row validation sample). Logistic
+    regression gives the identical top five for seeds 42, 7 and 21: AgeCategory,
+    GeneralHealth, Sex, HadStroke, HadKidneyDisease. The random forest keeps the same
+    top four; its fifth place varies (HadCOPD / HadDiabetes / HadKidneyDisease, all about
+    0.010 AP drop). Decision: these five go to Member 2 for Q2; the shared top four are
+    the robust core and HadKidneyDisease is less certain.
+    Evidence: results/modelling/ranking_stability.csv
+
+15. Duplicate rows do not affect validation results: 21 duplicate groups with 22 extra
+    copies (0.03%). One row per group leaves AP unchanged (LR 0.3606; RF 0.3580 -> 0.3581).
+    Decision: the test evaluation uses all rows. Evidence: results/modelling/duplicate_check.csv
