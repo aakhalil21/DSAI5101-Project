@@ -11,6 +11,8 @@ py -m pip install -r requirements.txt
 py src/prepare_data.py --verify-seed-42
 ```
 
+To view the results dashboard, open `dashboard/index.html` in a browser.
+
 The command works from the repository root or another directory. It reads `data/raw/heart_2022_with_nans.zip` directly, checks `data/manifests/source_checksums.json`, validates the frozen `split_manifest.csv` and `excluded_rows.csv`, and writes `training.csv`, `validation.csv`, and `test.csv` under `data/processed/observed/`. To use an explicitly supplied copy of the verified source, pass `--source PATH`. The optional `--verify-seed-42` checks the original grouping algorithm against the manifest; it never creates a new split. `--output-dir` and `--audit-dir` allow temporary verification outputs. The command fails if provenance, categories, assignments, counts, or duplicate groups differ. Manifest files use LF endings across Git checkouts, and byte-level SHA-256 checks remain enabled. Generated CSVs are ignored by Git.
 
 Expected rows: training **308,080**, validation **66,016**, test **66,015**, unknown-target exclusions **5,021**. The 41-column handoff contains 38 unmodified predictors, `heart_disease`, `row_id`, and `duplicate_group`. A target is 1 when `HadHeartAttack` or `HadAngina` is Yes; it is 0 only when both are No. Other combinations are excluded with reasons in `data/manifests/excluded_rows.csv`. The two target-source fields are absent from predictor exports. Missing predictor values are preserved.
@@ -28,6 +30,7 @@ Expected rows: training **308,080**, validation **66,016**, test **66,015**, unk
 | `results/figures/` | EDA figures written by `notebooks/03_eda.ipynb` (regenerated copies of figures 10 and 13 in `results/figures/_regenerated/`) |
 | `results/output_manifest.csv` | Every saved table and figure, the notebook cell that writes it, and whether it is reproduced and cited in the EDA report |
 | `Reports/` | Project proposal and the Member 2 EDA summary report |
+| `dashboard/` | Interactive results dashboard (single HTML file; see `dashboard/README.md`) |
 
 Member 2 should open **`data/processed/observed/training.csv`** for EDA and observed-value associations. Member 3 should use the observed splits for modeling, fitting preprocessing within each training fold during cross-validation. Keep missing values visible and report denominators. Use validation only for model decisions and test only for final evaluation. `heart_disease` stays in each saved dataset, but separate it as `y`; do not include it in `X`. `row_id` and `duplicate_group` are metadata, never predictors.
 

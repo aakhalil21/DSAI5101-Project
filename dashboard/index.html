@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heart Disease Predictors Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a monitor-style header with a running pulse line and five tabs; each tab opens with one interactive "of 100 people" or comparison piece, then the supporting tables. */
+:root{
+  --bg:#f2f4f6; --surface:#ffffff; --raised:#eef1f4; --ink:#12202a; --muted:#566772; --line:#d6dde3;
+  --pulse:#c9304c; --cool:#1f6fd0; --dim:#b9c3cb;
+  --good:#1a7a5a; --good-bg:#e1f2ec; --warn:#845600; --warn-bg:#faefd6;
+  --font-display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;
+  --font-body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0b1216; --surface:#131d24; --raised:#1a2730; --ink:#e9eff2; --muted:#9bacb7; --line:#283741;
+  --pulse:#ff5d73; --cool:#58b4ff; --dim:#3a4a55;
+  --good:#63d3aa; --good-bg:#143229; --warn:#f2c35f; --warn-bg:#382d12;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.5;transition:background .3s,color .3s}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.head{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;padding:12px 0 6px}
+h1{font-family:var(--font-display);font-size:22px;margin:0;line-height:1.15}
+.sub{color:var(--muted);font-size:12.5px}
+.ecg{flex:1 1 160px;height:30px;min-width:120px}
+.ecg path{fill:none;stroke:var(--pulse);stroke-width:2;stroke-linejoin:round;stroke-dasharray:60 540;animation:beat 2.6s linear infinite}
+.ecg .base{stroke:var(--line);stroke-dasharray:none;animation:none}
+@keyframes beat{from{stroke-dashoffset:600}to{stroke-dashoffset:0}}
+button{font:inherit;color:inherit;cursor:pointer}
+.ghost{background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12.5px;color:var(--muted)}
+.ghost:hover{color:var(--ink);border-color:var(--muted)}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav a{padding:9px 13px;color:var(--muted);text-decoration:none;font-weight:500;font-size:14px;position:relative}
+nav a:hover{color:var(--ink)}
+nav a::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--pulse);transform:scaleX(0);transition:transform .35s var(--ease)}
+nav a[aria-current="page"]{color:var(--ink)}
+nav a[aria-current="page"]::after{transform:scaleX(1)}
+:focus-visible{outline:2px solid var(--cool);outline-offset:2px}
+main{padding:24px 0 48px}
+section.view{display:none;flex-direction:column;gap:18px}
+section.view.on{display:flex;animation:rise .45s var(--ease)}
+@keyframes rise{from{opacity:.0;transform:translateY(10px)}to{opacity:1;transform:none}}
+h2{font-family:var(--font-display);font-size:26px;line-height:1.15;margin:0;text-wrap:balance;max-width:26ch}
+h3{font-size:14px;margin:0;font-weight:600}
+.lede{color:var(--muted);max-width:68ch;margin:0}
+.panel,.tile,.card{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.panel{padding:18px 20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.tile{padding:14px 16px;transition:transform .25s var(--ease),border-color .25s}
+.tile:hover{transform:translateY(-3px);border-color:var(--pulse)}
+.tile .n{font-family:var(--font-display);font-size:32px;line-height:1.05;font-variant-numeric:tabular-nums}
+.tile .l{color:var(--muted);font-size:13px}
+.note{color:var(--muted);font-size:13px;margin:0;max-width:75ch}
+.src{color:var(--muted);font-size:12px;border-top:1px dashed var(--line);padding-top:8px;margin:0}
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
+.pill.ok{background:var(--good-bg);color:var(--good)}
+.pill.todo{background:var(--warn-bg);color:var(--warn)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--raised);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:13px;transition:background .2s,color .2s,transform .2s var(--ease)}
+.chip:hover{transform:translateY(-1px)}
+.chip[aria-pressed="true"]{background:var(--pulse);border-color:var(--pulse);color:#fff;font-weight:600}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#1a0a0e}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{background:none;border:0;padding:6px 12px;font-size:13px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+/* of-100 dot grids */
+.people{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;width:100%;max-width:260px;flex:0 0 220px}
+.people i{aspect-ratio:1;border-radius:50%;background:var(--dim);transition:background .35s,transform .35s var(--ease)}
+.people i.on{background:var(--pulse);transform:scale(1.12)}
+.people.cool i.on{background:var(--cool)}
+.big{font-family:var(--font-display);font-size:44px;line-height:1;font-variant-numeric:tabular-nums}
+.big small{font-family:var(--font-body);font-size:14px;color:var(--muted);font-weight:400}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.duo>div{display:flex;flex-direction:column;gap:10px}
+/* bars */
+.bars{display:flex;flex-direction:column;gap:9px}
+.bar{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;font-size:13px}
+.track{height:16px;background:var(--raised);border-radius:4px;overflow:hidden;display:block}
+.fill{display:block;height:100%;width:0;background:var(--pulse);border-radius:4px;transition:width .9s var(--ease),background .3s}
+.fill.c{background:var(--cool)} .fill.d{background:var(--dim)}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums}
+.stack{display:flex;height:26px;border-radius:6px;overflow:hidden;background:var(--raised)}
+.stack span{display:block;height:100%;transition:width .9s var(--ease)}
+/* lollipops (log scale from 1x) */
+.lol{display:grid;grid-template-columns:54px 1fr 52px;gap:8px;align-items:center;font-size:12.5px;color:var(--muted)}
+.lol .rail{position:relative;height:14px}
+.lol .rail::before{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:var(--raised)}
+.lol .stem{position:absolute;left:0;top:6px;height:2px;width:0;background:var(--pulse);transition:width .9s var(--ease)}
+.lol .dot{position:absolute;top:1px;left:0;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--pulse);transition:left .9s var(--ease)}
+.lol.old .stem,.lol.old .dot{background:var(--cool)}
+.lol b{color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{padding:16px;display:flex;flex-direction:column;gap:10px;transition:transform .25s var(--ease),border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--pulse)}
+.card.todo{border-style:dashed}
+.card p{margin:0;font-size:13.5px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:500;font-size:12.5px}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:var(--raised)}
+tr.sel td{font-weight:600}
+tr.sel td:first-child{box-shadow:inset 3px 0 0 var(--pulse)}
+td .tick{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--pulse)}
+td .no{display:inline-block;width:10px;height:2px;background:var(--dim);vertical-align:middle}
+svg text{font-family:var(--font-body);fill:var(--muted);font-size:11.5px}
+svg .lab{fill:var(--ink);font-size:12px}
+svg .orrow{cursor:default}
+svg .orrow circle{transition:r .2s}
+svg .orrow:hover circle{r:8}
+svg .orrow:hover .lab{font-weight:600}
+svg .orline{transition:all .9s var(--ease)}
+footer{color:var(--muted);font-size:12.5px;padding:0 0 28px}
+@media (max-width:480px){.bar{grid-template-columns:100px 1fr 58px}h2{font-size:22px}.big{font-size:36px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="head">
+    <div>
+      <h1>Predictors of Self-Reported Heart Disease</h1>
+      <span class="sub">DSAI 5101 group project · 2022 CDC BRFSS · validation split unless stated</span>
+    </div>
+    <svg class="ecg" viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true">
+      <path class="base" pathLength="600" d="M0 18 H100 l6 -3 l6 3 h10 l5 5 l7 -22 l7 26 l5 -9 h14 l8 -5 l8 5 H300"/>
+      <path pathLength="600" d="M0 18 H100 l6 -3 l6 3 h10 l5 5 l7 -22 l7 26 l5 -9 h14 l8 -5 l8 5 H300"/>
+    </svg>
+    <button class="ghost" id="theme" type="button">Light mode</button>
+  </div>
+  <nav id="nav">
+    <a href="#overview">Overview</a>
+    <a href="#predictors">Leading predictors</a>
+    <a href="#young-adults">Young adults</a>
+    <a href="#stories">Stories</a>
+    <a href="#models">Models</a>
+  </nav>
+</div></header>
+
+<main><div class="wrap">
+
+<section class="view" id="v-overview">
+  <h2>About 9 in every 100 respondents report heart disease</h2>
+  <p class="lede">We model self-reported heart disease (heart attack or angina) from 34 survey questions, rank the predictors, and look for groups where a factor stands out.</p>
+  <div class="tiles" id="tiles"></div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Of 100 people, how many report heart disease?</h3>
+      <div class="chips" id="ageChips" role="group" aria-label="Age band"></div>
+      <div class="row" style="align-items:flex-end;gap:24px">
+        <div class="people" id="ovPeople" aria-hidden="true"></div>
+        <div><div class="big"><span id="ovRate">9.03</span><small>%</small></div><p class="note" id="ovText"></p></div>
+      </div>
+      <p class="src">Training split, unweighted sample proportions. Dots are rounded to whole people.</p>
+    </div>
+    <div class="panel">
+      <h3>Research questions</h3>
+      <p class="note"><b>Q1.</b> Which factors best predict self-reported heart disease?</p>
+      <p class="note"><b>Q2.</b> Which demographic, health and lifestyle variables are most strongly associated with the leading predictors?</p>
+      <h3>How to read this dashboard</h3>
+      <p class="note">All findings are associations from one survey taken at one point in time. They do not show cause. Percentages are unweighted, so they describe our sample, not the US population.</p>
+      <p class="src">Target: 1 if heart attack or angina is "Yes", 0 if both are "No". 5,021 records with an unknown target are excluded. ChestScan and PneumoVaxEver are left out of the models because they may follow a diagnosis.</p>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="v-predictors">
+  <h2>Age and general health carry most of the signal</h2>
+  <p class="lede">Three different models agree on the leading predictors. Logistic regression gives the same top five across three random seeds.</p>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Importance of the top five predictors</h3>
+      <p class="note">Drop in validation average precision when the predictor is shuffled (logistic regression).</p>
+      <div class="bars" id="impBars"></div>
+      <h3>Which models put it in their top five?</h3>
+      <div class="tablewrap"><table id="agree"></table></div>
+      <p class="src">results/modelling/predictor_importance.csv · permutation importance, seed 42</p>
+    </div>
+    <div class="panel">
+      <h3>Odds ratios, other answers held fixed</h3>
+      <div class="chips" id="orChips" role="group" aria-label="Predictor group"></div>
+      <div id="orPlot"></div>
+      <p class="note" id="orText"></p>
+      <p class="src">results/modelling/odds_ratios.csv · training split · log scale · references: age 18–24, excellent health, female, no stroke, no kidney disease</p>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Q2: what goes with each leading predictor <span class="pill todo">To be added</span></h3>
+    <div class="tablewrap"><table id="q2"></table></div>
+    <p class="src">Will come from results/q2/q2_associations.csv</p>
+  </div>
+</section>
+
+<section class="view" id="v-young-adults">
+  <h2>Under 40, a few factors stand out sharply</h2>
+  <p class="lede">Heart disease is rare at ages 18–39 (1.18%), so a linked factor shows up as a large relative difference. Pick a factor and an age band.</p>
+  <div class="panel">
+    <div class="chips" id="facChips" role="group" aria-label="Factor"></div>
+    <div class="row">
+      <span class="seg" id="bandSeg" role="group" aria-label="Age band">
+        <button type="button" data-b="y" aria-pressed="true">Ages 18–39</button><button type="button" data-b="o" aria-pressed="false">Ages 65 and over</button>
+      </span>
+    </div>
+    <div class="duo">
+      <div>
+        <h3 id="yaWithH"></h3>
+        <div class="people" id="yaWith" aria-hidden="true"></div>
+        <div class="big"><span id="yaWithN"></span><small>% report heart disease</small></div>
+      </div>
+      <div>
+        <h3 id="yaOthH"></h3>
+        <div class="people cool" id="yaOth" aria-hidden="true"></div>
+        <div class="big"><span id="yaOthN"></span><small>% report heart disease</small></div>
+      </div>
+    </div>
+    <p class="note" id="yaText"></p>
+    <p class="src">Heart disease rate, training split. Each grid is 100 people, rounded to whole people.</p>
+  </div>
+  <div class="panel">
+    <div class="row" style="justify-content:space-between">
+      <h3>Which age band has the bigger gap? It depends on the scale</h3>
+      <span class="seg" id="scaleSeg" role="group" aria-label="Scale">
+        <button type="button" data-s="rel" aria-pressed="true">Relative (times)</button><button type="button" data-s="abs" aria-pressed="false">Absolute (points)</button>
+      </span>
+    </div>
+    <div class="bars" id="gapBars">
+      <div class="bar"><span>Ages 18–39</span><span class="track"><span class="fill" id="gapY"></span></span><span class="v" id="gapYv"></span></div>
+      <div class="bar"><span>Ages 65 and over</span><span class="track"><span class="fill c" id="gapO"></span></span><span class="v" id="gapOv"></span></div>
+    </div>
+    <p class="note" id="gapText"></p>
+  </div>
+  <div class="panel">
+    <h3>All factors, ages 18–39</h3>
+    <div class="tablewrap"><table id="yaTable"></table></div>
+    <p class="src">Risk ratio = rate with the factor ÷ rate of others. Points = difference in percentage points.</p>
+  </div>
+</section>
+
+<section class="view" id="v-stories">
+  <h2>Five warning signs that are relatively stronger in young adults</h2>
+  <p class="lede">Each story was found on the training split and confirmed on the validation split, after adjusting for sex, general health, diabetes and smoking.</p>
+  <div class="row">
+    <span class="seg" id="splitSeg" role="group" aria-label="Data split">
+      <button type="button" data-p="t" aria-pressed="true">Training</button><button type="button" data-p="v" aria-pressed="false">Validation</button>
+    </span>
+    <span class="note">Switch to check that each story holds on data the models never saw.</span>
+  </div>
+  <div class="cards" id="cards"></div>
+  <div class="panel">
+    <h3>Read these with care</h3>
+    <p class="note">The difference is on the relative scale. In percentage points the gap in older adults is as large or larger: a stroke adds 22.7 points at ages 18–39 and 24.4 points at 65 and over. The survey cannot show which came first.</p>
+  </div>
+</section>
+
+<section class="view" id="v-models">
+  <h2>Three models perform alike; logistic regression is selected</h2>
+  <p class="lede">Pick a metric. On accuracy the do-nothing baseline wins, which is why models are compared on average precision, precision, recall and F1.</p>
+  <div class="grid2">
+    <div class="panel">
+      <div class="chips" id="metChips" role="group" aria-label="Metric"></div>
+      <div class="bars" id="metBars"></div>
+      <p class="note" id="metText"></p>
+      <p class="src">Validation split, each model at its own threshold (maximum F1).</p>
+    </div>
+    <div class="panel">
+      <h3>What the threshold does (logistic regression)</h3>
+      <div class="chips" id="thrChips" role="group" aria-label="Threshold"></div>
+      <div>
+        <div class="stack" aria-hidden="true"><span id="thrFound" style="background:var(--pulse);width:0"></span><span id="thrMiss" style="background:var(--dim);width:100%"></span></div>
+        <div class="row" style="justify-content:space-between;font-size:12.5px;color:var(--muted);margin-top:4px"><span>found</span><span>missed</span></div>
+      </div>
+      <div class="tiles">
+        <div><div class="big" style="font-size:30px" id="thrF"></div><div class="note">of 5,963 cases found</div></div>
+        <div><div class="big" style="font-size:30px" id="thrA"></div><div class="note">false alarms</div></div>
+        <div><div class="big" style="font-size:30px" id="thrAcc"></div><div class="note">accuracy</div></div>
+      </div>
+      <p class="note" id="thrText"></p>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Full validation results</h3>
+    <div class="tablewrap"><table id="modelTable"></table></div>
+    <p class="src">results/modelling/validation_metrics_three_models.csv</p>
+  </div>
+  <div class="panel">
+    <h3>Final test results <span class="pill todo">To be added</span></h3>
+    <p class="note">The test split is opened once, after all choices are frozen: average precision with a bootstrap interval, confusion matrices, and errors by age band and sex.</p>
+  </div>
+</section>
+
+</div></main>
+<footer><div class="wrap">Data: CDC BRFSS 2022 (Kaggle version). Code and tables: aakhalil21/DSAI5101-Project.</div></footer>
+
+<script>
+/* ===== EDIT CONTENT HERE: every number on the page comes from this object ===== */
+const DATA = {
+  // [value, decimals, suffix, label]
+  tiles: [
+    [440111,0,"","respondents with a known outcome"],
+    [9.03,2,"%","report heart disease"],
+    [34,0,"","survey questions used as predictors"],
+    [0.361,3,"","validation average precision (baseline 0.090)"]
+  ],
+  // [label, rate %, sentence]
+  ageRates: [
+    ["All ages",9.03,"across all respondents."],
+    ["18–39",1.18,"at ages 18–39."],
+    ["40–64",6.34,"at ages 40–64."],
+    ["65 and over",17.26,"at ages 65 and over."]
+  ],
+  importance: [["AgeCategory",0.102],["GeneralHealth",0.052],["Sex",0.027],["HadStroke",0.022],["HadKidneyDisease",0.009]],
+  // [predictor, logistic regression, gradient boosting, random forest] in each model's top five
+  agreement: [["AgeCategory",1,1,1],["GeneralHealth",1,1,1],["Sex",1,1,1],["HadStroke",1,1,1],["HadKidneyDisease",1,1,0],["HadCOPD",0,0,1]],
+  // group -> {note, rows:[label, odds ratio]}
+  oddsRatios: {
+    "Age": {note:"Compared with ages 18–24. The odds rise at every step and reach about 18 times at 80 or older.",
+      rows:[["25–29",1.25],["30–34",1.40],["35–39",1.67],["40–44",2.19],["45–49",3.04],["50–54",4.13],["55–59",5.40],["60–64",6.63],["65–69",8.38],["70–74",11.0],["75–79",13.6],["80 or older",17.7]]},
+    "General health": {note:"Compared with excellent health. Poor health has about 5 times the odds.",
+      rows:[["Very good",1.51],["Good",2.39],["Fair",3.73],["Poor",5.06]]},
+    "Sex and conditions": {note:"Men have about twice the odds of women. A stroke has 2.7 times the odds of no stroke.",
+      rows:[["Male",2.12],["Had a stroke",2.71],["Kidney disease",1.73]]}
+  },
+  q2: ["AgeCategory","GeneralHealth","Sex","HadStroke","HadKidneyDisease"],
+  // [name, n aged 18–39, young with, young others, old with, old others]
+  factors: [
+    ["Had a stroke",514,23.7,1.0,39.8,15.4],
+    ["Kidney disease",817,9.1,1.1,34.1,15.7],
+    ["All teeth removed",451,8.4,1.1,27.4,16.0],
+    ["Poor general health",1247,8.3,1.0,42.7,15.7],
+    ["COPD",1549,7.6,1.0,31.8,15.1],
+    ["Sleeps 4 hours or less",3055,4.6,1.0,26.7,16.9],
+    ["Smokes every day",5091,3.5,1.0,22.0,17.0],
+    ["Depressive disorder",18464,2.1,0.8,22.1,16.3]
+  ],
+  // [title, training OR 18–39, training OR 65+, validation OR 18–39, validation OR 65+]
+  stories: [
+    ["Stroke",17.2,2.54,20.1,2.52],
+    ["Kidney disease",4.86,1.76,4.43,1.77],
+    ["All teeth removed",3.94,1.30,5.54,1.30],
+    ["Sleeping 4 hours or less",3.04,1.11,2.84,1.28],
+    ["Smoking every day",2.64,1.06,3.50,0.97]
+  ],
+  // [model, AP, ROC-AUC, threshold, precision, recall, F1, found, false alarms, accuracy %, selected]
+  models: [
+    ["Baseline (always no)",0.090,0.500,"–",0,0,0,0,0,91.0,false],
+    ["Logistic regression",0.361,0.842,"0.215",0.363,0.468,0.409,2792,4894,87.8,true],
+    ["Random forest",0.358,0.842,"0.630",0.327,0.544,0.408,3243,6687,85.8,false],
+    ["Gradient boosting",0.364,0.845,"0.205",0.337,0.527,0.411,3141,6190,86.3,false]
+  ],
+  // key -> [label, column in models, bar maximum, decimals, suffix, sentence]
+  metrics: {
+    ap:  ["Average precision",1,0.4,3,"","All three models reach about four times the baseline."],
+    pr:  ["Precision",4,0.6,3,"","Logistic regression raises the fewest false alarms."],
+    re:  ["Recall",5,0.6,3,"","The random forest finds the most cases, with the most false alarms."],
+    f1:  ["F1",6,0.6,3,"","The three models are level on F1."],
+    acc: ["Accuracy",9,100,1,"%","The baseline has the highest accuracy and finds no cases at all."]
+  },
+  totalCases: 5963,
+  // [label, found, false alarms, accuracy %, sentence]
+  thresholds: [
+    ["Chosen: 0.215",2792,4894,87.8,"The chosen threshold finds almost half of the cases."],
+    ["Default: 0.5",720,615,91.1,"The default threshold is more accurate and misses 88% of the cases."],
+    ["Baseline: always no",0,0,91.0,"Predicting no for everyone is 91% accurate and finds nobody."]
+  ]
+};
+/* ============================================================================ */
+
+const $ = id => document.getElementById(id);
+const fmt = (n,d=0) => n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const state = {age:0, or:"Age", fac:0, band:"y", scale:"rel", split:"t", met:"ap", thr:0};
+
+function count(el, to, d=0, suffix=""){
+  const from = parseFloat(el.dataset.v || 0); el.dataset.v = to;
+  if(still){ el.textContent = fmt(to,d)+suffix; return; }
+  const t0 = performance.now(), dur = 800;
+  (function step(t){ const k = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-k,3);
+    el.textContent = fmt(from+(to-from)*e,d)+suffix; if(k<1) requestAnimationFrame(step); })(t0);
+}
+const later = fn => requestAnimationFrame(()=>requestAnimationFrame(fn));
+function chips(el, labels, current, onPick){
+  $(el).innerHTML = labels.map((l,i)=>`<button type="button" class="chip" data-i="${i}" aria-pressed="${i===current}">${l}</button>`).join("");
+  $(el).onclick = e => { const b = e.target.closest("button"); if(!b) return;
+    [...$(el).children].forEach(c=>c.setAttribute("aria-pressed", c===b)); onPick(+b.dataset.i); };
+}
+function seg(el, key, onPick){
+  $(el).onclick = e => { const b = e.target.closest("button"); if(!b) return;
+    [...$(el).children].forEach(c=>c.setAttribute("aria-pressed", c===b)); onPick(b.dataset[key]); };
+}
+function people(el, n){
+  const box = $(el);
+  if(!box.children.length) box.innerHTML = "<i></i>".repeat(100);
+  [...box.children].forEach((d,i)=>{ d.style.transitionDelay = still ? "0s" : (i*6)+"ms"; d.classList.toggle("on", i < Math.round(n)); });
+}
+function bars(el, rows, max, d, suffix){   // rows: [label, value, class]
+  const box = $(el);
+  if(box.children.length !== rows.length)
+    box.innerHTML = rows.map(()=>`<div class="bar"><span></span><span class="track"><span class="fill"></span></span><span class="v"></span></div>`).join("");
+  later(()=>rows.forEach(([l,v,c],i)=>{ const r = box.children[i];
+    r.children[0].textContent = l; r.querySelector(".fill").className = "fill "+(c||"");
+    r.querySelector(".fill").style.width = Math.max(0,Math.min(100,v/max*100))+"%"; count(r.children[2], v, d, suffix); }));
+}
+function table(el, head, rows, selIdx){
+  $(el).innerHTML = "<thead><tr>"+head.map(h=>`<th>${h}</th>`).join("")+"</tr></thead><tbody>"+
+    rows.map((r,i)=>`<tr${i===selIdx?' class="sel"':''}>`+r.map(c=>`<td>${c}</td>`).join("")+"</tr>").join("")+"</tbody>";
+}
+
+/* ---------- Overview ---------- */
+$("tiles").innerHTML = DATA.tiles.map(t=>`<div class="tile"><div class="n"></div><div class="l">${t[3]}</div></div>`).join("");
+function drawOverview(){
+  [...$("tiles").children].forEach((t,i)=>{ const el = t.firstChild; el.dataset.v = 0; count(el, DATA.tiles[i][0], DATA.tiles[i][1], DATA.tiles[i][2]); });
+  drawAge();
+}
+function drawAge(){
+  const [l,r,s] = DATA.ageRates[state.age];
+  later(()=>people("ovPeople", r)); count($("ovRate"), r, 2);
+  $("ovText").textContent = `About ${Math.round(r)} in 100 report heart disease ${s}`;
+}
+chips("ageChips", DATA.ageRates.map(a=>a[0]), 0, i=>{ state.age=i; drawAge(); });
+
+/* ---------- Predictors ---------- */
+function drawOR(){
+  const g = DATA.oddsRatios[state.or], rows = g.rows, W=520, L=118, R=46, rh=24, H=rows.length*rh+34, hi=Math.log(20);
+  const x = v => L + Math.log(v)/hi*(W-L-R);
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Odds ratios for ${state.or} on a log scale">`;
+  [1,2,5,10,20].forEach(t=>{ s+=`<line x1="${x(t)}" x2="${x(t)}" y1="6" y2="${H-24}" stroke="var(--line)" ${t===1?'':'stroke-dasharray="3 3"'}/><text x="${x(t)}" y="${H-8}" text-anchor="middle">${t}×</text>`; });
+  rows.forEach(([l,v],i)=>{ const y=18+i*rh;
+    s+=`<g class="orrow"><title>${l}: ${v} times the odds of the reference group</title><rect x="0" y="${y-11}" width="${W}" height="22" fill="transparent"/><text class="lab" x="${L-10}" y="${y+4}" text-anchor="end">${l}</text><line class="orline" x1="${x(1)}" x2="${x(1)}" data-x="${x(v)}" y1="${y}" y2="${y}" stroke="var(--pulse)" stroke-width="2"/><circle class="orline" cx="${x(1)}" data-x="${x(v)}" cy="${y}" r="5.5" fill="var(--pulse)" stroke="var(--surface)" stroke-width="2"/><text x="${x(v)+11}" y="${y+4}">${v}×</text></g>`; });
+  $("orPlot").innerHTML = s+"</svg>"; $("orText").textContent = g.note;
+  later(()=>$("orPlot").querySelectorAll(".orline").forEach(e=> e.tagName==="line" ? e.setAttribute("x2",e.dataset.x) : e.setAttribute("cx",e.dataset.x)));
+}
+const orKeys = Object.keys(DATA.oddsRatios);
+chips("orChips", orKeys, 0, i=>{ state.or = orKeys[i]; drawOR(); });
+const mark = v => v ? '<span class="tick" title="yes"></span><span style="position:absolute;left:-999em">yes</span>' : '<span class="no"></span><span style="position:absolute;left:-999em">no</span>';
+table("agree", ["Predictor","Logistic regression","Gradient boosting","Random forest"], DATA.agreement.map(a=>[a[0],mark(a[1]),mark(a[2]),mark(a[3])]));
+table("q2", ["Leading predictor","Most associated variables","Strength","Confirmed on validation"], DATA.q2.map(p=>[p,"–","–","–"]));
+function drawPredictors(){ $("impBars").innerHTML=""; bars("impBars", DATA.importance, 0.11, 3, ""); drawOR(); }
+
+/* ---------- Young adults ---------- */
+function drawFactor(){
+  const [name,n,yw,yo,ow,oo] = DATA.factors[state.fac], young = state.band==="y";
+  const w = young?yw:ow, o = young?yo:oo, band = young?"aged 18–39":"aged 65 and over";
+  $("yaWithH").textContent = `Of 100 people ${band}: ${name.toLowerCase()}`;
+  $("yaOthH").textContent  = `Of 100 other people ${band}`;
+  later(()=>{ people("yaWith", w); people("yaOth", o); });
+  count($("yaWithN"), w, 1); count($("yaOthN"), o, 1);
+  $("yaText").textContent = `${name}: ${fmt(n)} adults aged 18–39 in the training split. At ${young?"ages 18–39":"65 and over"} the rate is ${w}% against ${o}% for others the same age (${(w/o).toFixed(1)} times, +${(w-o).toFixed(1)} points).`;
+  const rel = state.scale==="rel", vy = rel? yw/yo : yw-yo, vo = rel? ow/oo : ow-oo, max = rel? 25 : 30;
+  later(()=>{ $("gapY").style.width = Math.min(100,vy/max*100)+"%"; $("gapO").style.width = Math.min(100,vo/max*100)+"%"; });
+  count($("gapYv"), vy, 1, rel?"×":" pts"); count($("gapOv"), vo, 1, rel?"×":" pts");
+  $("gapText").textContent = rel
+    ? `On the relative scale the young-adult gap is larger (${(vy).toFixed(1)} times against ${(vo).toFixed(1)} times), because so few young adults have heart disease to begin with.`
+    : `In percentage points the gap is ${vy>vo?"larger for young adults":"as large or larger for older adults"} (+${vy.toFixed(1)} against +${vo.toFixed(1)}). Both views are true, so we report both.`;
+  [...$("yaTable").querySelectorAll("tbody tr")].forEach((r,i)=>r.classList.toggle("sel", i===state.fac));
+  try{ localStorage.setItem("hd-factor", state.fac); }catch(e){}
+}
+try{ const s = +localStorage.getItem("hd-factor"); if(DATA.factors[s]) state.fac = s; }catch(e){}
+chips("facChips", DATA.factors.map(f=>f[0]), state.fac, i=>{ state.fac=i; drawFactor(); });
+seg("bandSeg","b", v=>{ state.band=v; drawFactor(); });
+seg("scaleSeg","s", v=>{ state.scale=v; drawFactor(); });
+table("yaTable", ["Factor","People (18–39)","Rate with","Rate of others","Risk ratio","Points"],
+  DATA.factors.map(f=>[f[0],fmt(f[1]),f[2].toFixed(1)+"%",f[3].toFixed(1)+"%",(f[2]/f[3]).toFixed(1)+"×","+"+(f[2]-f[3]).toFixed(1)]));
+
+/* ---------- Stories ---------- */
+$("cards").innerHTML = DATA.stories.map(s=>
+  `<div class="card"><h3>${s[0]}</h3>
+     <div><div class="big"><span class="sy"></span></div><div class="note">the odds of heart disease at ages 18–39, compared with others the same age</div></div>
+     <div class="lol"><span>18–39</span><span class="rail"><span class="stem"></span><span class="dot"></span></span><b class="ly"></b></div>
+     <div class="lol old"><span>65+</span><span class="rail"><span class="stem"></span><span class="dot"></span></span><b class="lo"></b></div>
+     <p><span class="pill ok">Confirmed</span> <span class="note">holds on both splits</span></p></div>`).join("") +
+  `<div class="card todo"><h3>Deep-dive checks</h3><p>Does each story hold within smokers and non-smokers, by sex, and by diabetes status?</p><p><span class="pill todo">To be added</span></p></div>`;
+function drawStories(){
+  const pos = v => Math.max(0, Math.log(Math.max(v,1))/Math.log(25))*100+"%", k = state.split==="t" ? 1 : 3;
+  [...$("cards").querySelectorAll(".card:not(.todo)")].forEach((c,i)=>{ const s = DATA.stories[i], y = s[k], o = s[k+1];
+    count(c.querySelector(".sy"), y, y<10?2:1, "×"); count(c.querySelector(".ly"), y, 2, "×"); count(c.querySelector(".lo"), o, 2, "×");
+    const [a,b] = c.querySelectorAll(".lol");
+    later(()=>{ a.querySelector(".stem").style.width = a.querySelector(".dot").style.left = pos(y);
+                b.querySelector(".stem").style.width = b.querySelector(".dot").style.left = pos(o); }); });
+}
+seg("splitSeg","p", v=>{ state.split=v; drawStories(); });
+
+/* ---------- Models ---------- */
+const metKeys = Object.keys(DATA.metrics);
+function drawMetric(){
+  const [label,col,max,d,suf,text] = DATA.metrics[state.met];
+  bars("metBars", DATA.models.map(m=>[m[0], m[col], m[10] ? "" : (m[0].startsWith("Baseline") ? "d" : "c")]), max, d, suf);
+  $("metText").textContent = text;
+}
+chips("metChips", metKeys.map(k=>DATA.metrics[k][0]), 0, i=>{ state.met = metKeys[i]; drawMetric(); });
+function drawThr(){
+  const [l,found,alarms,acc,text] = DATA.thresholds[state.thr], share = found/DATA.totalCases*100;
+  later(()=>{ $("thrFound").style.width = share+"%"; $("thrMiss").style.width = (100-share)+"%"; });
+  count($("thrF"), found); count($("thrA"), alarms); count($("thrAcc"), acc, 1, "%");
+  $("thrText").textContent = text;
+}
+chips("thrChips", DATA.thresholds.map(t=>t[0]), 0, i=>{ state.thr=i; drawThr(); });
+table("modelTable", ["Model","AP","ROC-AUC","Threshold","Precision","Recall","F1","Cases found","False alarms","Accuracy"],
+  DATA.models.map(m=>[m[0]+(m[10]?" (selected)":""),m[1].toFixed(3),m[2].toFixed(3),m[3],m[4].toFixed(3),m[5].toFixed(3),m[6].toFixed(3),fmt(m[7]),fmt(m[8]),m[9].toFixed(1)+"%"]),
+  DATA.models.findIndex(m=>m[10]));
+function drawModels(){ $("metBars").innerHTML=""; drawMetric(); $("thrFound").style.width="0"; drawThr(); }
+
+/* ---------- Tabs (hash routing) and theme ---------- */
+const views = {"overview":drawOverview, "predictors":drawPredictors, "young-adults":drawFactor, "stories":drawStories, "models":drawModels};
+function route(){
+  const h = location.hash.slice(1), v = views[h] ? h : "overview";
+  Object.keys(views).forEach(n => $("v-"+n).classList.toggle("on", n===v));
+  document.querySelectorAll("#nav a").forEach(a => a.getAttribute("href")==="#"+v ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
+  views[v]();
+}
+addEventListener("hashchange", route);
+addEventListener("keydown", e => {            // left and right arrows move between tabs
+  if(e.target.closest("button,select,input,a") || e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = Object.keys(views), i = k.indexOf(views[location.hash.slice(1)] ? location.hash.slice(1) : "overview");
+  if(e.key==="ArrowRight" && i<k.length-1) location.hash = k[i+1];
+  if(e.key==="ArrowLeft" && i>0) location.hash = k[i-1];
+});
+const root = document.documentElement, tbtn = $("theme");
+function setTheme(t){ root.dataset.theme = t; tbtn.textContent = t==="dark" ? "Light mode" : "Dark mode"; try{ localStorage.setItem("hd-theme", t); }catch(e){} }
+try{ const t = localStorage.getItem("hd-theme"); if(t) setTheme(t); }catch(e){}
+tbtn.onclick = () => setTheme(root.dataset.theme==="dark" ? "light" : "dark");
+route();
+</script>
+</body>
+</html>
