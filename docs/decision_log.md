@@ -122,3 +122,24 @@ Status of each item in "Remaining work" above after the EDA (the original list i
 15. Duplicate rows do not affect validation results: 21 duplicate groups with 22 extra
     copies (0.03%). One row per group leaves AP unchanged (LR 0.3606; RF 0.3580 -> 0.3581).
     Decision: the test evaluation uses all rows. Evidence: results/modelling/duplicate_check.csv
+
+16. Gradient boosting added as a third model (validation only). Selected setting:
+    learning_rate 0.05, max_leaf_nodes 31, min_samples_leaf 100 (tie rule), threshold 0.2055.
+    Validation AP 0.364 vs 0.361 for logistic regression; F1 0.411 vs 0.409. Logistic
+    regression stays the selected model: equal F1, higher precision (0.363 vs 0.337),
+    fewer false alarms and interpretable odds ratios. Gradient boosting has the same top
+    five predictors. Evidence: results/modelling/validation_metrics_three_models.csv
+
+17. Odds ratios come from a separate unpenalised logistic regression on the training split
+    with explicit reference categories (age 18-24, excellent health, female, "No" for
+    conditions). Used for interpretation only, not for prediction. Its validation AP is
+    0.3603. Evidence: results/modelling/odds_ratios.csv
+
+18. Age-interaction stories: stroke, all teeth removed, kidney disease, sleeping 4 h or less
+    and daily smoking each have a larger odds ratio at 18-39 than at 65+ (adjusted for sex,
+    general health, diabetes and smoking), with interaction p < 1e-20 on training and the
+    same ordering on validation. They are confirmed on the relative scale only; in
+    percentage points the 65+ gap is the same or larger. Evidence:
+    results/stories/age_interactions.csv
+
+19. All of entries 12-18 were fixed before the test split was opened.
