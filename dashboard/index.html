@@ -89,6 +89,11 @@ h3{font-size:14px;margin:0;font-weight:600}
 .fill{display:block;height:100%;width:0;background:var(--pulse);border-radius:4px;transition:width .9s var(--ease),background .3s}
 .fill.c{background:var(--cool)} .fill.d{background:var(--dim)}
 .bar .v{text-align:right;font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.pair{display:flex;flex-direction:column;gap:5px}
+.pairh{font-size:13px;font-weight:600}
+#q2Bars .bar{grid-template-columns:minmax(150px,230px) 1fr 60px}
 .stack{display:flex;height:26px;border-radius:6px;overflow:hidden;background:var(--raised)}
 .stack span{display:block;height:100%;transition:width .9s var(--ease)}
 /* lollipops (log scale from 1x) */
@@ -143,6 +148,7 @@ footer{color:var(--muted);font-size:12.5px;padding:0 0 28px}
   <nav id="nav">
     <a href="#overview">Overview</a>
     <a href="#predictors">Leading predictors</a>
+    <a href="#q2">Q2: linked answers</a>
     <a href="#young-adults">Young adults</a>
     <a href="#stories">Stories</a>
     <a href="#models">Models</a>
@@ -196,10 +202,31 @@ footer{color:var(--muted);font-size:12.5px;padding:0 0 28px}
       <p class="src">results/modelling/odds_ratios.csv · training split · log scale · references: age 18–24, excellent health, female, no stroke, no kidney disease</p>
     </div>
   </div>
+</section>
+
+<section class="view" id="v-q2">
+  <h2 id="q2Title">What goes together with each leading predictor?</h2>
+  <p class="lede">Q2 asks which other survey answers are most strongly linked with the five leading predictors. Pick a predictor to see its strongest links and what they look like.</p>
+  <div class="chips" id="q2Chips" role="group" aria-label="Leading predictor"></div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Strongest links (training split)</h3>
+      <p class="note">Bias-corrected Cram&eacute;r's V for two categories, eta for a category and a number. 0 = no link, 1 = perfect link. Candidates are the same 34 questions the models use.</p>
+      <div class="bars" id="q2Bars"></div>
+      <p class="note"><span class="pill ok">Confirmed</span> All 25 top links hold on the validation split.</p>
+      <p class="src">results/q2/q2_associations.csv &middot; 95% intervals by bootstrap are within &plusmn;0.008 of each score</p>
+    </div>
+    <div class="panel">
+      <h3 id="q2ProfH">What the links look like</h3>
+      <div class="legend" id="q2Legend"></div>
+      <div class="bars" id="q2Prof"></div>
+      <p class="note" id="q2Text"></p>
+      <p class="src">results/q2/q2_link_profiles.csv &middot; training split, unweighted</p>
+    </div>
+  </div>
   <div class="panel">
-    <h3>Q2: what goes with each leading predictor <span class="pill todo">To be added</span></h3>
-    <div class="tablewrap"><table id="q2"></table></div>
-    <p class="src">Will come from results/q2/q2_associations.csv</p>
+    <h3>Read these with care</h3>
+    <p class="note">The survey is a single point in time, so it cannot show which answer came first. Scores measure the strength of a link, not its direction; the right-hand panel shows the direction. Pairs that are linked by definition, such as sex and diabetes (one answer is "during pregnancy"), are left out.</p>
   </div>
 </section>
 
@@ -332,7 +359,29 @@ const DATA = {
     "Sex and conditions": {note:"Men have about twice the odds of women. A stroke has 2.7 times the odds of no stroke.",
       rows:[["Male",2.12],["Had a stroke",2.71],["Kidney disease",1.73]]}
   },
-  q2: ["AgeCategory","GeneralHealth","Sex","HadStroke","HadKidneyDisease"],
+  // Q2: per predictor -> top links [answer, measure, score, healthcare-use flag], profiles [item, value A, value B], group labels, summary
+  q2: {
+    "AgeCategory": {groups:["Ages 18–39","Ages 65+"],
+      links:[["Arthritis","V",0.400,0],["HIV test (ever)","V",0.310,0],["Flu vaccine (past year)","V",0.294,0],["Skin cancer","V",0.259,0],["Difficulty walking","V",0.258,0]],
+      profile:[["Arthritis",7.6,54.2],["Difficulty walking",3.7,25.4],["Skin cancer",0.7,16.3],["Flu vaccine in the past year",35.1,69.9],["Ever had an HIV test",42.1,18.1]],
+      text:"The answers that differ most between age groups are arthritis, testing and vaccination. Arthritis is reported by 7.6% at 18–39, 31.8% at 40–64 and 54.2% at 65 and over. HIV testing is the one answer that is lower at 65 and over."},
+    "GeneralHealth": {groups:["Excellent health","Poor health"],
+      links:[["Bad physical-health days","eta",0.590,0],["Difficulty walking","V",0.453,0],["Difficulty with errands","V",0.366,0],["Difficulty dressing or bathing","V",0.338,0],["Bad mental-health days","eta",0.298,0]],
+      profile:[["Difficulty walking",2.6,69.7],["Difficulty with errands",1.6,44.8],["Difficulty dressing or bathing",0.6,31.0]],
+      text:"Self-rated health goes together most closely with day-to-day function. People in poor health reported a median of 30 bad physical-health days in the past month, against 0 for those in good health or better."},
+    "Sex": {groups:["Men","Women"],
+      links:[["Depressive disorder","V",0.132,0],["Check-up in the past year","V",0.108,0],["Tetanus shot in the past 10 years","V",0.108,0],["Drank alcohol in the past 30 days","V",0.103,0],["Arthritis","V",0.100,0]],
+      profile:[["Depressive disorder",14.9,25.6],["Check-up in the past year",76.5,83.7],["Arthritis",29.1,38.6],["Drank alcohol in the past 30 days",58.5,48.2]],
+      text:"Differences between men and women are small (all scores 0.13 or less). The largest is depression: 25.6% of women report a depressive disorder, against 14.9% of men."},
+    "HadStroke": {groups:["No stroke","Had a stroke"],
+      links:[["General health","V",0.179,0],["Difficulty walking","V",0.174,0],["Age group","V",0.147,0],["Teeth removed","V",0.142,0],["Bad physical-health days","eta",0.137,0]],
+      profile:[["Difficulty walking",14.6,46.0],["Fair or poor health",16.5,45.8],["Aged 65 or older",35.1,63.8],["All teeth removed",5.3,17.0]],
+      text:"Among people who reported a stroke, 46.0% also reported difficulty walking, against 14.6% of people without a stroke. They also reported more bad physical-health days (mean 10.0 against 4.1). General health and difficulty walking are equally strong links."},
+    "HadKidneyDisease": {groups:["No kidney disease","Kidney disease"],
+      links:[["General health","V",0.192,0],["Diabetes","V",0.169,0],["Difficulty walking","V",0.161,0],["Age group","V",0.143,0],["Bad physical-health days","eta",0.143,0]],
+      profile:[["Diabetes",12.4,40.2],["Difficulty walking",14.6,42.7],["Fair or poor health",16.3,46.7]],
+      text:"Among people who reported kidney disease, 40.2% also reported diabetes, against 12.4% of people without it. 63.6% were 65 or older (against 35.0%), and they reported more bad physical-health days (mean 10.0 against 4.0)."}
+  },
   // [name, n aged 18–39, young with, young others, old with, old others]
   factors: [
     ["Had a stroke",514,23.7,1.0,39.8,15.4],
@@ -445,7 +494,23 @@ const orKeys = Object.keys(DATA.oddsRatios);
 chips("orChips", orKeys, 0, i=>{ state.or = orKeys[i]; drawOR(); });
 const mark = v => v ? '<span class="tick" title="yes"></span><span style="position:absolute;left:-999em">yes</span>' : '<span class="no"></span><span style="position:absolute;left:-999em">no</span>';
 table("agree", ["Predictor","Logistic regression","Gradient boosting","Random forest"], DATA.agreement.map(a=>[a[0],mark(a[1]),mark(a[2]),mark(a[3])]));
-table("q2", ["Leading predictor","Most associated variables","Strength","Confirmed on validation"], DATA.q2.map(p=>[p,"–","–","–"]));
+/* ---------- Q2 ---------- */
+const q2Keys = Object.keys(DATA.q2); let q2Sel = 0;
+function drawQ2(){
+  const k = q2Keys[q2Sel], d = DATA.q2[k];
+  $("q2Bars").innerHTML = "";
+  bars("q2Bars", d.links.map(l=>[l[0]+" ("+l[1]+")", l[2], l[3] ? "d" : ""]), 0.6, 3, "");
+  $("q2ProfH").textContent = "What the links look like: "+d.groups[1].toLowerCase()+" vs "+d.groups[0].toLowerCase();
+  $("q2Legend").innerHTML = `<span><i style="background:var(--cool)"></i>${d.groups[0]}</span><span><i style="background:var(--pulse)"></i>${d.groups[1]}</span>`;
+  $("q2Prof").innerHTML = d.profile.map(([item,a,b])=>
+    `<div class="pair"><div class="pairh">${item}</div>`+
+    [[d.groups[0],a,"c"],[d.groups[1],b,""]].map(([g,v,c])=>
+      `<div class="bar"><span>${g}</span><span class="track"><span class="fill ${c}" data-w="${Math.min(100,v/80*100)}"></span></span><span class="v" data-to="${v}">0.0%</span></div>`).join("")+`</div>`).join("");
+  later(()=>$("q2Prof").querySelectorAll(".fill").forEach(f=>f.style.width=f.dataset.w+"%"));
+  $("q2Prof").querySelectorAll(".v").forEach(v=>{ v.dataset.v=0; count(v, +v.dataset.to, 1, "%"); });
+  $("q2Text").textContent = d.text;
+}
+chips("q2Chips", q2Keys, 0, i=>{ q2Sel=i; drawQ2(); });
 function drawPredictors(){ $("impBars").innerHTML=""; bars("impBars", DATA.importance, 0.11, 3, ""); drawOR(); }
 
 /* ---------- Young adults ---------- */
@@ -512,7 +577,7 @@ table("modelTable", ["Model","AP","ROC-AUC","Threshold","Precision","Recall","F1
 function drawModels(){ $("metBars").innerHTML=""; drawMetric(); $("thrFound").style.width="0"; drawThr(); }
 
 /* ---------- Tabs (hash routing) and theme ---------- */
-const views = {"overview":drawOverview, "predictors":drawPredictors, "young-adults":drawFactor, "stories":drawStories, "models":drawModels};
+const views = {"overview":drawOverview, "predictors":drawPredictors, "q2":drawQ2, "young-adults":drawFactor, "stories":drawStories, "models":drawModels};
 function route(){
   const h = location.hash.slice(1), v = views[h] ? h : "overview";
   Object.keys(views).forEach(n => $("v-"+n).classList.toggle("on", n===v));

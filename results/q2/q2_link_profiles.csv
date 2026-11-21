@@ -1,0 +1,143 @@
+predictor,candidate,predictor_level,candidate_level_or_stat,value,n
+AgeCategory,HadArthritis,18-39,Yes (%),7.598354692484191,71476
+AgeCategory,HadArthritis,40-64,Yes (%),31.83246948670791,119620
+AgeCategory,HadArthritis,65+,Yes (%),54.1982848470442,109378
+AgeCategory,HIVTesting,18-39,Yes (%),42.09251674143424,61524
+AgeCategory,HIVTesting,40-64,Yes (%),44.167405257467884,102673
+AgeCategory,HIVTesting,65+,Yes (%),18.087871746718868,94251
+AgeCategory,FluVaxLast12,18-39,Yes (%),35.13746107746953,63909
+AgeCategory,FluVaxLast12,40-64,Yes (%),47.05975457609445,107406
+AgeCategory,FluVaxLast12,65+,Yes (%),69.90434069122855,99938
+AgeCategory,HadSkinCancer,18-39,Yes (%),0.6600337691695854,71663
+AgeCategory,HadSkinCancer,40-64,Yes (%),4.980026408597837,119658
+AgeCategory,HadSkinCancer,65+,Yes (%),16.29890360349597,108811
+AgeCategory,DifficultyWalking,18-39,Yes (%),3.653780565564898,67437
+AgeCategory,DifficultyWalking,40-64,Yes (%),14.731264060742408,113792
+AgeCategory,DifficultyWalking,65+,Yes (%),25.390524846401476,105307
+GeneralHealth,PhysicalHealthDays,Poor,median,30.0,12786
+GeneralHealth,PhysicalHealthDays,Poor,mean,23.636477397153136,12786
+GeneralHealth,PhysicalHealthDays,Fair,median,5.0,39221
+GeneralHealth,PhysicalHealthDays,Fair,mean,10.938043395119962,39221
+GeneralHealth,PhysicalHealthDays,Good,median,0.0,96811
+GeneralHealth,PhysicalHealthDays,Good,mean,3.456590676679303,96811
+GeneralHealth,PhysicalHealthDays,Very good,median,0.0,101978
+GeneralHealth,PhysicalHealthDays,Very good,mean,1.6966600639353586,101978
+GeneralHealth,PhysicalHealthDays,Excellent,median,0.0,49418
+GeneralHealth,PhysicalHealthDays,Excellent,mean,1.0678902424217895,49418
+GeneralHealth,DifficultyWalking,Poor,Yes (%),69.6573060447406,12606
+GeneralHealth,DifficultyWalking,Fair,Yes (%),41.127694859038144,39195
+GeneralHealth,DifficultyWalking,Good,Yes (%),15.714909152838242,93949
+GeneralHealth,DifficultyWalking,Very good,Yes (%),5.603921728164029,98324
+GeneralHealth,DifficultyWalking,Excellent,Yes (%),2.626877100438167,47014
+GeneralHealth,DifficultyErrands,Poor,Yes (%),44.82070122194713,12521
+GeneralHealth,DifficultyErrands,Fair,Yes (%),19.269740545519674,39082
+GeneralHealth,DifficultyErrands,Good,Yes (%),6.254808103256688,93592
+GeneralHealth,DifficultyErrands,Very good,Yes (%),2.315707826867926,97983
+GeneralHealth,DifficultyErrands,Excellent,Yes (%),1.5784745690208324,46754
+GeneralHealth,DifficultyDressingBathing,Poor,Yes (%),31.018885891128395,12602
+GeneralHealth,DifficultyDressingBathing,Fair,Yes (%),10.296999465553661,39293
+GeneralHealth,DifficultyDressingBathing,Good,Yes (%),2.594033722438392,94062
+GeneralHealth,DifficultyDressingBathing,Very good,Yes (%),0.7459041416505546,98270
+GeneralHealth,DifficultyDressingBathing,Excellent,Yes (%),0.5986620648515063,46938
+GeneralHealth,MentalHealthDays,Poor,median,10.0,12822
+GeneralHealth,MentalHealthDays,Poor,mean,12.74364373732647,12822
+GeneralHealth,MentalHealthDays,Fair,median,2.0,40129
+GeneralHealth,MentalHealthDays,Fair,mean,7.951705748959605,40129
+GeneralHealth,MentalHealthDays,Good,median,0.0,97295
+GeneralHealth,MentalHealthDays,Good,mean,4.3683539750244105,97295
+GeneralHealth,MentalHealthDays,Very good,median,0.0,101813
+GeneralHealth,MentalHealthDays,Very good,mean,2.955241472110634,101813
+GeneralHealth,MentalHealthDays,Excellent,median,0.0,49348
+GeneralHealth,MentalHealthDays,Excellent,mean,2.124584582961822,49348
+Sex,HadDepressiveDisorder,Male,No (%),85.10035419126328,143990
+Sex,HadDepressiveDisorder,Male,Yes (%),14.899645808736716,143990
+Sex,HadDepressiveDisorder,Female,No (%),74.37546939830833,162442
+Sex,HadDepressiveDisorder,Female,Yes (%),25.62453060169168,162442
+Sex,LastCheckupTime,Male,5 or more years ago (%),6.245056497175142,141600
+Sex,LastCheckupTime,Male,Within past 2 years (1 year but less than 2 years ago) (%),10.213276836158192,141600
+Sex,LastCheckupTime,Male,Within past 5 years (2 years but less than 5 years ago) (%),6.99223163841808,141600
+Sex,LastCheckupTime,Male,Within past year (anytime less than 12 months ago) (%),76.5494350282486,141600
+Sex,LastCheckupTime,Female,5 or more years ago (%),2.7080445767631502,160891
+Sex,LastCheckupTime,Female,Within past 2 years (1 year but less than 2 years ago) (%),9.053955783729357,160891
+Sex,LastCheckupTime,Female,Within past 5 years (2 years but less than 5 years ago) (%),4.555257907527457,160891
+Sex,LastCheckupTime,Female,Within past year (anytime less than 12 months ago) (%),83.68274173198003,160891
+Sex,TetanusLast10Tdap,Male,"No, did not receive any tetanus shot in the past 10 years (%)",32.53888103413452,118824
+Sex,TetanusLast10Tdap,Male,"Yes, received Tdap (%)",23.675351780785025,118824
+Sex,TetanusLast10Tdap,Male,"Yes, received tetanus shot but not sure what type (%)",35.85302632464822,118824
+Sex,TetanusLast10Tdap,Male,"Yes, received tetanus shot, but not Tdap (%)",7.932740860432236,118824
+Sex,TetanusLast10Tdap,Female,"No, did not receive any tetanus shot in the past 10 years (%)",34.316424665283805,132575
+Sex,TetanusLast10Tdap,Female,"Yes, received Tdap (%)",31.254761455779743,132575
+Sex,TetanusLast10Tdap,Female,"Yes, received tetanus shot but not sure what type (%)",27.14614369224967,132575
+Sex,TetanusLast10Tdap,Female,"Yes, received tetanus shot, but not Tdap (%)",7.282670186686781,132575
+Sex,AlcoholDrinkers,Male,No (%),41.51617613156075,130130
+Sex,AlcoholDrinkers,Male,Yes (%),58.48382386843925,130130
+Sex,AlcoholDrinkers,Female,No (%),51.781739481812764,146009
+Sex,AlcoholDrinkers,Female,Yes (%),48.218260518187236,146009
+Sex,HadArthritis,Male,No (%),70.91821507152623,144073
+Sex,HadArthritis,Male,Yes (%),29.08178492847376,144073
+Sex,HadArthritis,Female,No (%),61.4497802617163,162466
+Sex,HadArthritis,Female,Yes (%),38.5502197382837,162466
+HadStroke,GeneralHealth,Yes,Excellent (%),4.562533548040794,13041
+HadStroke,GeneralHealth,Yes,Fair (%),28.579096695038725,13041
+HadStroke,GeneralHealth,Yes,Good (%),32.144774173759686,13041
+HadStroke,GeneralHealth,Yes,Poor (%),17.237941875623036,13041
+HadStroke,GeneralHealth,Yes,Very good (%),17.475653707537766,13041
+HadStroke,GeneralHealth,No,Excellent (%),16.80801351480225,293604
+HadStroke,GeneralHealth,No,Fair (%),12.76106592553235,293604
+HadStroke,GeneralHealth,No,Good (%),32.35071729267994,293604
+HadStroke,GeneralHealth,No,Poor (%),3.7353033337420474,293604
+HadStroke,GeneralHealth,No,Very good (%),34.34489993324342,293604
+HadStroke,DifficultyWalking,Yes,No (%),54.01395460742642,12469
+HadStroke,DifficultyWalking,Yes,Yes (%),45.98604539257358,12469
+HadStroke,DifficultyWalking,No,No (%),85.42754504771236,278649
+HadStroke,DifficultyWalking,No,Yes (%),14.572454952287645,278649
+HadStroke,AgeCategory,Yes,18-39 (%),3.9795602353669866,12916
+HadStroke,AgeCategory,Yes,40-64 (%),32.21585630226076,12916
+HadStroke,AgeCategory,Yes,65+ (%),63.80458346237226,12916
+HadStroke,AgeCategory,No,18-39 (%),24.69438076775019,288349
+HadStroke,AgeCategory,No,40-64 (%),40.165563258412554,288349
+HadStroke,AgeCategory,No,65+ (%),35.140055973837256,288349
+HadStroke,RemovedTeeth,Yes,1 to 5 (%),31.602042444550822,12534
+HadStroke,RemovedTeeth,Yes,"6 or more, but not all (%)",22.05201850965374,12534
+HadStroke,RemovedTeeth,Yes,All (%),16.985798627732567,12534
+HadStroke,RemovedTeeth,Yes,None of them (%),29.36014041806287,12534
+HadStroke,RemovedTeeth,No,1 to 5 (%),29.646453571142644,287289
+HadStroke,RemovedTeeth,No,"6 or more, but not all (%)",9.89456609894566,287289
+HadStroke,RemovedTeeth,No,All (%),5.306155126022925,287289
+HadStroke,RemovedTeeth,No,None of them (%),55.15282520388877,287289
+HadStroke,PhysicalHealthDays,Yes,median,3.0,12554
+HadStroke,PhysicalHealthDays,Yes,mean,9.963278636291221,12554
+HadStroke,PhysicalHealthDays,No,median,0.0,287601
+HadStroke,PhysicalHealthDays,No,mean,4.052385075156206,287601
+HadKidneyDisease,GeneralHealth,Yes,Excellent (%),3.9490720759602937,13902
+HadKidneyDisease,GeneralHealth,Yes,Fair (%),29.3482952093224,13902
+HadKidneyDisease,GeneralHealth,Yes,Good (%),33.14630988347,13902
+HadKidneyDisease,GeneralHealth,Yes,Poor (%),17.38598762767947,13902
+HadKidneyDisease,GeneralHealth,Yes,Very good (%),16.17033520356783,13902
+HadKidneyDisease,GeneralHealth,No,Excellent (%),16.884942555076325,292367
+HadKidneyDisease,GeneralHealth,No,Fair (%),12.660115539715495,292367
+HadKidneyDisease,GeneralHealth,No,Good (%),32.298104779267156,292367
+HadKidneyDisease,GeneralHealth,No,Poor (%),3.6748333430243494,292367
+HadKidneyDisease,GeneralHealth,No,Very good (%),34.48200378291668,292367
+HadKidneyDisease,HadDiabetes,Yes,No (%),56.31952917533912,13933
+HadKidneyDisease,HadDiabetes,Yes,"No, pre-diabetes or borderline diabetes (%)",2.669920333022321,13933
+HadKidneyDisease,HadDiabetes,Yes,Yes (%),40.19234909926075,13933
+HadKidneyDisease,HadDiabetes,Yes,"Yes, but only during pregnancy (female) (%)",0.818201392377808,13933
+HadKidneyDisease,HadDiabetes,No,No (%),84.42770579932537,292603
+HadKidneyDisease,HadDiabetes,No,"No, pre-diabetes or borderline diabetes (%)",2.2593753310799958,292603
+HadKidneyDisease,HadDiabetes,No,Yes (%),12.433912160845924,292603
+HadKidneyDisease,HadDiabetes,No,"Yes, but only during pregnancy (female) (%)",0.8790067087487141,292603
+HadKidneyDisease,DifficultyWalking,Yes,No (%),57.2959604286892,13343
+HadKidneyDisease,DifficultyWalking,Yes,Yes (%),42.7040395713108,13343
+HadKidneyDisease,DifficultyWalking,No,No (%),85.3884553695327,277445
+HadKidneyDisease,DifficultyWalking,No,Yes (%),14.6115446304673,277445
+HadKidneyDisease,AgeCategory,Yes,18-39 (%),5.938363134176479,13758
+HadKidneyDisease,AgeCategory,Yes,40-64 (%),30.433202500363425,13758
+HadKidneyDisease,AgeCategory,Yes,65+ (%),63.628434365460095,13758
+HadKidneyDisease,AgeCategory,No,18-39 (%),24.678228165482658,287160
+HadKidneyDisease,AgeCategory,No,40-64 (%),40.27998328458003,287160
+HadKidneyDisease,AgeCategory,No,65+ (%),35.04178854993732,287160
+HadKidneyDisease,PhysicalHealthDays,Yes,median,3.0,13439
+HadKidneyDisease,PhysicalHealthDays,Yes,mean,9.995609792395268,13439
+HadKidneyDisease,PhysicalHealthDays,No,median,0.0,286374
+HadKidneyDisease,PhysicalHealthDays,No,mean,4.026859980305475,286374

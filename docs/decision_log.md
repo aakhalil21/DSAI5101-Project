@@ -143,3 +143,10 @@ Status of each item in "Remaining work" above after the EDA (the original list i
     results/stories/age_interactions.csv
 
 19. All of entries 12-18 were fixed before the test split was opened.
+
+20. Q2 method (notebook 05): bias-corrected Cramér's V (categorical) or eta (numeric) per
+    leading predictor x candidate, plus signed Spearman where both are ordered; observed pairs only.
+    Candidates are the 34 model features (ChestScan, PneumoVaxEver, height and weight excluded), for consistency with Q1.
+    The definitional pair Sex x HadDiabetes (pregnancy-only level) is kept but left out of top lists.
+    Top 5 per predictor ranked on training, 95% CI from 200 bootstrap resamples by duplicate group.
+    Confirmed on validation if |valid - train| <= 0.02 or valid is inside the training CI. Evidence: results/q2/q2_associations.csv

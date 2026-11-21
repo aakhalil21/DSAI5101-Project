@@ -1,6 +1,6 @@
 # Results dashboard
 
-`index.html` is a single, self-contained page with five tabs: Overview, Leading predictors, Young adults, Stories and Models.
+`index.html` is a single, self-contained page with six tabs: Overview, Leading predictors, Q2: linked answers, Young adults, Stories and Models.
 
 ## How to open it
 
@@ -22,13 +22,14 @@ Where each part of `DATA` comes from:
 | `importance` | `results/modelling/predictor_importance.csv`, logistic regression, seed 42 |
 | `agreement` | `results/modelling/predictor_importance.csv`, rank 1–5 for each model |
 | `oddsRatios` | `results/modelling/odds_ratios.csv` |
+| `q2` links (Q2: linked answers tab) | `results/q2/q2_associations.csv`, top 5 per predictor (`top5`), `measure` and `score_train`; all 25 are `confirmed` on validation |
+| `q2` profiles and text (Q2: linked answers tab) | `results/q2/q2_link_profiles.csv`, training split; "fair or poor health" is the sum of the Fair and Poor shares |
 | `factors` (stroke, kidney disease, teeth, sleep, smoking) | `results/stories/age_interactions.csv`, Model A, training split (`rate_with`, `rate_without`) |
 | `factors` (poor general health, COPD, depressive disorder) and all "People (18–39)" counts | Not in a results file yet. Recomputed from the training split with the same rules as `notebooks/06_age_interactions.ipynb` |
 | `stories` | `results/stories/age_interactions.csv`, Model B, `odds_ratio` for 18-39 and 65+ (training and validation) |
 
 ## Placeholders still to fill
 
-- **Q2 associations** (Leading predictors tab): will come from `results/q2/q2_associations.csv`.
 - **Story deep dives** (Stories tab): whether each story holds within smokers and non-smokers, by sex, and by diabetes status.
 - **Final test results** (Models tab): test-split metrics, once all choices are frozen.
 
